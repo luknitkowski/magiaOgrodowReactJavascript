@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
-
 const ParallaxBlock = styled.div`
   background-image: url(${(props) => props.image});
   min-height: 100vh;
@@ -31,4 +30,5 @@ const Parallax = ({ text = "", image }) => {
     </ParallaxBlock>
   );
 };
-export default Parallax;
+export default memo(Parallax);
+

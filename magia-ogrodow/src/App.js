@@ -1,7 +1,8 @@
 import React from "react";
 import SideBar from "./components/sidebar";
 import HorizontalMenu from "./components/horizontalMenu";
-import BodyRouter from "./components/bodyrouter/";
+import BodyRouter from "./components/bodyrouter";
+import Footer from "./components/footer";
 import { makeStyles } from "@material-ui/core/styles";
 
 import AppBar from "@material-ui/core/AppBar";
@@ -107,6 +108,7 @@ const App = (props) => {
       </HideOnScroll>
       <Toolbar id="back-to-top-anchor" />
       <BodyRouter />
+      <Footer />
       <ScrollTop {...props}>
         <Fab color="secondary" size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
