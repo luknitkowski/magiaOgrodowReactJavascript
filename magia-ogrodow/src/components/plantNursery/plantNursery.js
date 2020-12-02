@@ -9,6 +9,8 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Grid, { GridSpacing } from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
+import Paper2 from '../../images/plant/2-min-min.jpg';
+
 const PlantNurseryContainer = styled.div`
   padding-bottom: 50px;
 `;
@@ -88,23 +90,23 @@ const PlantNursery = () => {
   ];
 
   const plantImages = [
-    `../../assets/plant/2-min-min.jpg`,
-    `../../assets/plant/3-min-min.jpg`,
-    `../../assets/plant/4-min-min.jpg`,
-    `../../assets/plant/5-min-min.jpg`,
-    `../../assets/plant/6-min-min.jpg`,
-    `../../assets/plant/7-min-min.jpg`,
-    `../../assets/plant/8-min-min.jpg`,
-    `../../assets/plant/9-min-min.jpg`,
-    `../../assets/plant/11-min-min.jpg`,
-    `../../assets/plant/13-min-min.jpg`,
-    `../../assets/plant/14-min-min.jpg`,
-    `../../assets/plant/15-min-min.jpg`,
-    `../../assets/plant/16-min-min.jpg`,
-    `../../assets/plant/17-min-min.jpg`,
-    `../../assets/plant/18-min-min.jpg`,
-    `../../assets/plant/19-min-min.jpg`,
-    `../../assets/plant/20-min-min.jpg`,
+    `../../images/plant/2-min-min.jpg`,
+    `../../images/plant/3-min-min.jpg`,
+    `../../images/plant/4-min-min.jpg`,
+    `../../images/plant/5-min-min.jpg`,
+    `../../images/plant/6-min-min.jpg`,
+    `../../images/plant/7-min-min.jpg`,
+    `../../images/plant/8-min-min.jpg`,
+    `../../images/plant/9-min-min.jpg`,
+    `../../images/plant/11-min-min.jpg`,
+    `../../images/plant/13-min-min.jpg`,
+    `../../images/plant/14-min-min.jpg`,
+    `../../images/plant/15-min-min.jpg`,
+    `../../images/plant/16-min-min.jpg`,
+    `../../images/plant/17-min-min.jpg`,
+    `../../images/plant/18-min-min.jpg`,
+    `../../images/plant/19-min-min.jpg`,
+    `../../images/plant/20-min-min.jpg`,
   ];
 
   return (
@@ -124,9 +126,9 @@ const PlantNursery = () => {
         <SubTypeOfFlora>
           <h3>Posiadamy:</h3>
           <ul>
-            {bushesList.map((item) => {
+            {bushesList.map((item, index) => {
               return (
-                <div>
+                <div key={index}>
                   <li>
                     <LocalFloristIcon style={{ position: 'relative', top: '6px' }} />
                     <b>{item.type}</b>
@@ -141,11 +143,17 @@ const PlantNursery = () => {
       <Parallax image={imagePlantNurseryTwoParallax} />
       <Grid item xs={12}>
         <Grid container justify="center" spacing={spacing}>
-          {[0, 1, 2].map((value) => (
-            <Grid key={value} item>
-              <Paper className={classes.paper} />
-            </Grid>
-          ))}
+          {plantImages.map((item, index) => {
+            console.log(item)
+            const imageSRC = require('../../images/plant/2-min-min.jpg')
+              return (
+                <Grid key={index} item>
+                <Paper className={classes.paper}>
+                  <img src={require('../../images/plant/2-min-min.jpg')}></img>
+                </Paper>
+              </Grid>
+              )
+        })}
         </Grid>
       </Grid>
     </PlantNurseryContainer>
