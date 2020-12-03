@@ -48,11 +48,11 @@ const useStyles = makeStyles((theme) =>
       flexGrow: 1,
     },
     paper: {
-      height: 140,
-      width: 100,
+      height: 250,
+      width: 300,
     },
     control: {
-      padding: theme.spacing(2),
+      padding: theme.spacing(10),
     },
   }),
 );
@@ -89,24 +89,45 @@ const PlantNursery = () => {
     }
   ];
 
+  // const plantImages = [
+  //   `../../images/plant/2-min-min.jpg`,
+  //   `../../images/plant/3-min-min.jpg`,
+  //   `../../images/plant/4-min-min.jpg`,
+  //   `../../images/plant/5-min-min.jpg`,
+  //   `../../images/plant/6-min-min.jpg`,
+  //   `../../images/plant/7-min-min.jpg`,
+  //   `../../images/plant/8-min-min.jpg`,
+  //   `../../images/plant/9-min-min.jpg`,
+  //   `../../images/plant/11-min-min.jpg`,
+  //   `../../images/plant/13-min-min.jpg`,
+  //   `../../images/plant/14-min-min.jpg`,
+  //   `../../images/plant/15-min-min.jpg`,
+  //   `../../images/plant/16-min-min.jpg`,
+  //   `../../images/plant/17-min-min.jpg`,
+  //   `../../images/plant/18-min-min.jpg`,
+  //   `../../images/plant/19-min-min.jpg`,
+  //   `../../images/plant/20-min-min.jpg`,
+  // ];
+
+  
   const plantImages = [
-    `../../images/plant/2-min-min.jpg`,
-    `../../images/plant/3-min-min.jpg`,
-    `../../images/plant/4-min-min.jpg`,
-    `../../images/plant/5-min-min.jpg`,
-    `../../images/plant/6-min-min.jpg`,
-    `../../images/plant/7-min-min.jpg`,
-    `../../images/plant/8-min-min.jpg`,
-    `../../images/plant/9-min-min.jpg`,
-    `../../images/plant/11-min-min.jpg`,
-    `../../images/plant/13-min-min.jpg`,
-    `../../images/plant/14-min-min.jpg`,
-    `../../images/plant/15-min-min.jpg`,
-    `../../images/plant/16-min-min.jpg`,
-    `../../images/plant/17-min-min.jpg`,
-    `../../images/plant/18-min-min.jpg`,
-    `../../images/plant/19-min-min.jpg`,
-    `../../images/plant/20-min-min.jpg`,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
   ];
 
   return (
@@ -141,19 +162,17 @@ const PlantNursery = () => {
         </SubTypeOfFlora>
       </TypeOfFlora>
       <Parallax image={imagePlantNurseryTwoParallax} />
-      <Grid item xs={12}>
-        <Grid container justify="center" spacing={spacing}>
+      <Grid item xs={12} style={{ paddingTop:'50px', paddingBottom:'50px', paddingLeft:'7px', paddingRight:'7px'}}>
+        <Grid container justify="center" spacing={10}>
           {plantImages.map((item, index) => {
-            console.log(item)
-            const imageSRC = require('../../images/plant/2-min-min.jpg')
               return (
                 <Grid key={index} item>
                 <Paper className={classes.paper}>
-                  <img src={require('../../images/plant/2-min-min.jpg')}></img>
+                  <img height="100%" width="100%" src={`/images/plant/${item}-min-min.jpg`}/>
                 </Paper>
               </Grid>
               )
-        })}
+          })}
         </Grid>
       </Grid>
     </PlantNurseryContainer>
