@@ -131,8 +131,8 @@ const Projects = () => {
         </div>
       </ProjectListAndExamples>
       <BlockWithMovie>
-      <iframe src='https://www.youtube.com/embed/gtWyCMKXjMk' frameborder="0" webkitallowfullscreen 
-        mozallowfullscreen allowfullscreen>
+      <iframe src='https://www.youtube.com/embed/gtWyCMKXjMk' frameBorder="0" webkitallowfullscreen="true"  
+        mozallowfullscreen="true"  allowFullScreen="true" >
       </iframe>
     </BlockWithMovie>
     </div>
