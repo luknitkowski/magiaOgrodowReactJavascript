@@ -1,10 +1,11 @@
 import React, {memo,  useState, useEffect } from "react";
+import Carousel from 'react-bootstrap/Carousel';
 
 const Contact = () => {
 
   return (
     <div>
-      contact
+     zupa
     </div>
   );
 };

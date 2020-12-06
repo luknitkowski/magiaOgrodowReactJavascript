@@ -96,14 +96,86 @@ padding-bottom: 70px;
 `;
 
 const Gardening = () => {
-  const [dialogConfig, setDialogConfig] = useState({isOpen: false, gardenToShow: ''});
+  const [dialogConfig, setDialogConfig] = useState({isOpen: false, gardenToShow: '', listOfImages: []});
+
+  const pathsList = {
+    'first': [
+      '/images/project-images/first/1-min.jpg',
+      '/images/project-images/first/2-min.jpg',
+      '/images/project-images/first/3-min.jpg',
+      '/images/project-images/first/4-min.jpg',
+      '/images/project-images/first/5-min.jpg',
+      '/images/project-images/first/6-min.jpg',
+      '/images/project-images/first/7-min.jpg',
+      '/images/project-images/first/8-min.jpg',
+      '/images/project-images/first/9-min.jpg'
+    ],
+    'second': [
+      '/images/project-images/second/1-min.jpg',
+      '/images/project-images/second/2-min.jpg',
+      '/images/project-images/second/3-min.jpg',
+      '/images/project-images/second/4-min.jpg',
+      '/images/project-images/second/5-min.jpg',
+      '/images/project-images/second/6-min.jpg',
+      '/images/project-images/second/7-min.jpg',
+      '/images/project-images/second/8-min.jpg',
+      '/images/project-images/second/9-min.jpg',
+      '/images/project-images/second/10-min.jpg',
+      '/images/project-images/second/11-min.jpg',
+      '/images/project-images/second/12-min.jpg'
+    ],
+    'third': [
+      '/images/project-images/third/1-min.jpg',
+      '/images/project-images/third/2-min.jpg',
+      '/images/project-images/third/3-min.jpg',
+      '/images/project-images/third/4-min.jpg',
+      '/images/project-images/third/5-min.jpg',
+      '/images/project-images/third/6-min.jpg',
+      '/images/project-images/third/7-min.jpg',
+      '/images/project-images/third/8-min.jpg',
+      '/images/project-images/third/9-min.jpg'
+    ],
+    'fourth': [
+      '/images/project-images/fourth/1-min.jpg',
+      '/images/project-images/fourth/2-min.jpg',
+      '/images/project-images/fourth/3-min.jpg',
+      '/images/project-images/fourth/4-min.jpg',
+      '/images/project-images/fourth/5-min.jpg',
+      '/images/project-images/fourth/6-min.jpg',
+      '/images/project-images/fourth/7-min.jpg',
+      '/images/project-images/fourth/8-min.jpg',
+      '/images/project-images/fourth/9-min.jpg',
+      '/images/project-images/fourth/10-min.jpg',
+      '/images/project-images/fourth/11-min.jpg'
+    ],
+    'fifth': [
+      '/images/project-images/fifth/1-min.jpg',
+      '/images/project-images/fifth/2-min.jpg',
+      '/images/project-images/fifth/3-min.jpg',
+      '/images/project-images/fifth/4-min.jpg',
+      '/images/project-images/fifth/5-min.jpg',
+      '/images/project-images/fifth/6-min.jpg',
+      '/images/project-images/fifth/7-min.jpg',
+      '/images/project-images/fifth/8-min.jpg'
+    ],
+    'sixth': [
+      '/images/project-images/sixth/1-min.jpg',
+      '/images/project-images/sixth/2-min.jpg',
+      '/images/project-images/sixth/3-min.jpg',
+      '/images/project-images/sixth/4-min.jpg',
+      '/images/project-images/sixth/5-min.jpg',
+      '/images/project-images/sixth/6-min.jpg',
+      '/images/project-images/sixth/7-min.jpg',
+      '/images/project-images/sixth/8-min.jpg'
+    ]
+  }
 
   const handleClickOpen = (gardenToShow) => {
-    setDialogConfig({isOpen: true, gardenToShow: gardenToShow});
+    setDialogConfig({isOpen: true, gardenToShow: gardenToShow , listOfImages: [...pathsList[gardenToShow]]});
   };
 
   const closeFullDialog = () => {
-    setDialogConfig({isOpen: false, gardenToShow: ''});
+    setDialogConfig({isOpen: false, gardenToShow: '', listOfImages: [] });
   };
 
   return (

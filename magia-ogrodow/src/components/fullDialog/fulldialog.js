@@ -1,51 +1,23 @@
-import React, { memo, useState, useEffect } from "react";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import React, { memo, useState, forwardRef } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import Dialog from "@material-ui/core/Dialog";
 
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
-
-import MuiDialogTitle from "@material-ui/core/DialogTitle";
-import MuiDialogContent from "@material-ui/core/DialogContent";
-import Typography from "@material-ui/core/Typography";
-import LinearProgress from "@material-ui/core/LinearProgress";
-import Fade from "@material-ui/core/Fade";
+import Carousel from 'react-bootstrap/Carousel';
 
 const useStyles = makeStyles((theme) => ({
   dialog: {
     position: "relative",
   },
-  appBar: {
-    position: "fixed",
-  },
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
-  toolbar: {
-    display: "flex",
-    "justify-content": "flex-end",
-  },
-  paper: {
-    margin: `${theme.spacing(1)}px auto`,
-    padding: theme.spacing(2),
-  },
-  grid: {
-    "margin-top": "80px",
-  },
-  author: {
-    cursor: "pointer",
-    "text-decoration": "underline",
-    "margin-right": "40px",
-  },
-  span: {
+  closeButton: {
     position: "absolute",
-  },
-  paragraph: {
-    position: "relative",
+    right: '20px',
+    top: '10px',
+    color: theme.palette.grey[500],
+    zIndex: 3
+
   },
 }));
 
@@ -53,42 +25,12 @@ const styles = (theme) => ({
   root: {
     margin: 0,
     padding: theme.spacing(2),
-  },
-  closeButton: {
-    position: "absolute",
-    right: theme.spacing(1),
-    top: theme.spacing(1),
-    color: theme.palette.grey[500],
-  },
+  }
 });
 
-const Transition = React.forwardRef(function Transition(props, ref) {
+const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-
-const DialogTitle = withStyles(styles)((props) => {
-  const { children, classes, onClose, ...other } = props;
-  return (
-    <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h6">{children}</Typography>
-      {onClose ? (
-        <IconButton
-          aria-label="close"
-          className={classes.closeButton}
-          onClick={onClose}
-        >
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </MuiDialogTitle>
-  );
-});
-
-const DialogContent = withStyles((theme) => ({
-  root: {
-    padding: theme.spacing(2),
-  },
-}))(MuiDialogContent);
 
 const FullDialog = ({ dialogConfig, closeFullDialog }) => {
   const classes = useStyles();
@@ -107,42 +49,38 @@ const FullDialog = ({ dialogConfig, closeFullDialog }) => {
   };
 
   return (
-    <div>
       <Dialog
         className={classes.dialog}
         fullScreen
         open={dialogConfig.isOpen}
         TransitionComponent={Transition}
+        style={{maxHeight:'100vh'}}
       >
-        <AppBar className={classes.appBar}>
-          <Toolbar className={classes.toolbar}>
-            <IconButton
+        <IconButton
               edge="end"
               color="inherit"
               onClick={closeDialog}
               aria-label="close"
+              className={classes.closeButton}
             >
               <CloseIcon />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-        <Toolbar id="back-to-top-anchor-full-dialog" />
-          zupa 2
+        </IconButton>
+        <Carousel>
+          {[...dialogConfig.listOfImages].map( (imagePath, index)  => {
+            return (
+              <Carousel.Item key={index} style={{maxHeight:'100vh'}}>
+              <img
+                className="d-block w-100"
+                src={imagePath}
+                alt={`${index} Image`}
+              />
+              <Carousel.Caption>
+              </Carousel.Caption>
+            </Carousel.Item>
+            )
+          })}
+        </Carousel>
       </Dialog>
-
-      <Dialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-      >
-        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Author info
-        </DialogTitle>
-        <DialogContent dividers>
-zupa
-        </DialogContent>
-      </Dialog>
-    </div>
   );
 };
 
