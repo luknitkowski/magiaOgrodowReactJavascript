@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap');
 
+html {
+  scroll-behavior: smooth;
+};
+
 body {
   margin: 0;
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
@@ -18,3 +22,33 @@ code {
 .signature {
   font-family: Herr Von Muellerhoff, sans-serif;
 }
+
+/*width*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: -moz-linear-gradient(-45deg,#5CDB95 0%, #007033 100%);
+  background: -webkit-gradient(
+    left top,
+    right bottom,
+    color-stop(0%,#5CDB95),
+    color-stop(100%, #007033)
+  );
+  background: -webkit-linear-gradient(-45deg,#5CDB95 0%, #007033 100%);
+  background: -o-linear-gradient(-45deg,#5CDB95 0%, #007033 100%);
+  background: -ms-linear-gradient(-45deg,#5CDB95 0%, #007033 100%);
+  background: linear-gradient(135deg,#5CDB95 0%, #007033 100%);
+
+  border-radius: 10px;
+}
+
+
