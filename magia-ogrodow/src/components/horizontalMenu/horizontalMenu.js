@@ -19,7 +19,7 @@ const HorizontalMenu = () => {
 
   return (
     <HorizontalMenuContainer>
-      <img height="50" src={logo}/>
+      <img alt="logo" height="50" src={logo}/>
       <StyledBottomNavigation
       value={value}
         onChange={handleChange}

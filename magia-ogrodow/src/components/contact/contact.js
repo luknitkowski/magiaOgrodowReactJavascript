@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Parallax from '../parallax';
 import imagePlantNurseryParallax from '../../images/contact.jpg';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
