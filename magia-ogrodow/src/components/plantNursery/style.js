@@ -9,7 +9,7 @@ export const PlantNurseryBlockInfo = styled.div`
   text-align: center;
   border-bottom: 1px solid rgb(198, 198, 198);
   padding: 40px;
-  background-color: #e6e6e6;
+  background-color: #adebc5;
 `;
 
 export const PlantNurserySubBlockInfo = styled.div`
@@ -33,7 +33,7 @@ export const SubTypeOfFlora = styled.div`
 `;
 
 export const PlantNurseryInfoToScrollDown = styled.div`
-  background-color: #e6e6e6;
+  background-color: #adebc5;
   align-items: center;
   padding: 40px;
   border-top: 1px solid rgb(198, 198, 198);

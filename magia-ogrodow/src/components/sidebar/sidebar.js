@@ -68,7 +68,7 @@ const SideBar = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <Link to="/aboutUs" className={classes.link}>
+        <Link to="/" className={classes.link}>
           <ListItem button key="AboutUs">
             <ListItemIcon>
               <FaceIcon />

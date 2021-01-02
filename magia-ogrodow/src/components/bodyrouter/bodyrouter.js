@@ -12,13 +12,13 @@ const BodyRouter = () => {
   return (
     <div>
       <Switch>
-        <Route path="/aboutUs" component={AboutUs} exact/>
+        <Route path="/" component={AboutUs} exact/>
         <Route path="/plantNursery" component={PlantNursery} />
         <Route path="/projects" component={Projects} />
         <Route path="/gardening" component={Gardening} />
         <Route path="/gardenCare" component={GardenCare} />
         <Route path="/contact" component={Contact} />
-        {/* <Redirect to="/" /> */}
+        <Route path="/" component={AboutUs} exact/>
       </Switch>
     </div>
   );

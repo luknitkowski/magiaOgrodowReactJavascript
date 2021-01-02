@@ -6,7 +6,7 @@ export const AboutUsBlockInfo = styled.div`
   padding:40px;
   padding-top: 70px;
   padding-bottom: 70px;
-  background-color: #e6e6e6;
+  background-color: #adebc5;
 `;
 
 export const SubBlockInfo = styled.div`
@@ -19,10 +19,14 @@ export const Signature = styled.p`
   -ms-transform: skewY(-5deg); /* IE 9 */
   transform: skewY(-5deg);
   font-family: "Herr Von Muellerhoff", cursive;
-  font-size: 20px;
+  font-size: 30px;
   float: right;
   right: 20%;
   position: relative;
+
+  @media only screen and (max-width: 500px) {
+    right: 20px;
+  }
 `;
 
 export const SubMainInfoBlock = styled.div`

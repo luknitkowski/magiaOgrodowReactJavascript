@@ -52,3 +52,11 @@ code {
 }
 
 
+  @media (min-width: 600px) {
+    p, b, li {
+    font-size: 18px;
+    }
+  }
+
+
+

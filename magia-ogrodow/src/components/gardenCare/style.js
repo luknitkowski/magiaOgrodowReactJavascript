@@ -6,7 +6,7 @@ export const GardenCareBlockInfo = styled.div`
   text-align: center;
   border-bottom: 1px solid rgb(198, 198, 198);
   padding: 40px;
-  background-color: #e6e6e6;
+  background-color: #adebc5;
 `;
 
 export const GardenCareSubBlockInfo = styled.div`
