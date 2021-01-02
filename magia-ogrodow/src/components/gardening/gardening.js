@@ -1,148 +1,15 @@
-import React, { memo, useState, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import Parallax from '../parallax';
-import styled from "styled-components";
 import Button from '@material-ui/core/Button';
 import FullDialog from "../fullDialog";
 
 import imageGardeningParallax from '../../images/garden-back.jpg';
 import imageGardeningTwoParallax from '../../images/garden-house.jpg';
 
-const GardeningBlockInfo = styled.div`
-  text-align: center;
-  border-bottom: 1px solid rgb(198, 198, 198);
-  padding-top: 70px;
-  padding-bottom: 70px;
-  background-color: #e6e6e6;
-`;
-
-const SubBlockInfo = styled.div`
-  max-width: 1000px;
-  margin: auto;
-  padding-bottom: 50px;
-`;
-
-const Signature = styled.p`
-  -ms-transform: skewY(-5deg); /* IE 9 */
-  transform: skewY(-5deg);
-  font-family: "Herr Von Muellerhoff", cursive;
-  font-size: 20px;
-  float: right;
-  right: 20%;
-  position: relative;
-`;
-
-const BlockWithExampleGardensForPC = styled.div`
-`;
-
-const SubBlockWithExampleGarden = styled.div`
-  display: flex;
-  max-width: 1000px;
-  margin: auto;
-`;
-
-const SubBlockWithExampleGardenForMobile = styled.div`
-  max-width: 1000px;
-  margin: auto;
-`;
-
-const ImageForExampleGarden = styled.img`
-  width: 250px;
-  height: 250px;
-`;
-
-const BlockWithImage = styled.div`
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    border-radius: 5px;
-    margin: auto;
-    transition: transform 0.2s;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  }
-  
-  img:hover {
-    transform: scale(1.1);
-    -webkit-box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.75);
-  }
-`;
-
-const BlockWithImageForMobile = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-
-img {
-  border-radius: 5px;
-  margin: auto;
-  transition: transform 0.2s;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-}
-
-img:hover {
-  transform: scale(1.1);
-  -webkit-box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.75);
-}
-`;
-
-const BlockWithTextAndButton = styled.div`
-  width: 50%;
-  justify-content: center;
-  text-align: center;
-
-  p {
-    text-align: left;
-  }
-
-  button {
-    transition: transform 0.2s;
-    max-width: 200px;
-  }
-
-  button:hover {
-    transform: scale(1.05);
-  }
-`;
-
-const BlockWithTextAndButtonForMobile = styled.div`
-  justify-content: center;
-  text-align: center;
-
-  p {
-    text-align: left;
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
-
-  button {
-    transition: transform 0.2s;
-    max-width: 200px;
-    margin-bottom: 50px;
-  }
-
-  button:hover {
-    transform: scale(1.05);
-  }
-`;
-
-const BlockRecordForBorder = styled.div`
-border-bottom: 1px solid rgb(198, 198, 198);
-padding: 40px;
-padding-top: 70px;
-padding-bottom: 70px;
-`;
-
-const BlockWithExampleGardensForMobile = styled.div``;
+import {GardeningBlockInfo,SubBlockInfo,Signature,BlockWithExampleGardensForPC,
+  SubBlockWithExampleGarden,SubBlockWithExampleGardenForMobile,
+  ImageForExampleGarden,BlockWithImage,BlockWithImageForMobile, 
+  BlockWithTextAndButton, BlockWithTextAndButtonForMobile, BlockRecordForBorder, BlockWithExampleGardensForMobile} from './style.js'
 
 const TypeOfDevice = ({ widthDevice, handleClickOpen }) => {
 
@@ -450,4 +317,4 @@ const Gardening = () => {
   );
 };
 
-export default memo(Gardening);
+export default Gardening;

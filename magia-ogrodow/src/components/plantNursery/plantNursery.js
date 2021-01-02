@@ -1,62 +1,19 @@
-import React, { memo, useState } from "react";
+import React, { useState } from "react";
 import Parallax from '../parallax';
 import imagePlantNurseryParallax from '../../images/flowers.jpg';
-import styled from "styled-components";
 import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
 import imagePlantNurseryTwoParallax from '../../images/plant/1-min.jpg';
 import imagePlantNurseryThreeParallax from '../../images/plant/10-min.jpg';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import Grid, { GridSpacing } from '@material-ui/core/Grid';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 
 import Dialog from '@material-ui/core/Dialog';
 
-
-const PlantNurseryContainer = styled.div`
-`;
-
-const PlantNurseryBlockInfo = styled.div`
-  text-align: center;
-  border-bottom: 1px solid rgb(198, 198, 198);
-  padding: 40px;
-  background-color: #e6e6e6;
-`;
-
-const PlantNurserySubBlockInfo = styled.div`
-  max-width: 1000px;
-  margin: auto;
-`;
-
-const TypeOfFlora = styled.div`
-  border-bottom: 1px solid rgb(198, 198, 198);
-  border-padding: 50px;
-  padding: 40px;
-`;
-
-const SubTypeOfFlora = styled.div`
-  max-width: 1000px;
-  margin: auto;
-
-  ul {
-    list-style-type: none;
-  }
-`;
-
-const PlantNurseryInfoToScrollDown = styled.div`
-  background-color: #e6e6e6;
-  align-items: center;
-  padding: 40px;
-  border-top: 1px solid rgb(198, 198, 198);
-  text-align: center;
-
-  p {
-    font-size: 20px;
-    text-align: center;
-  }
-`;
+import {PlantNurseryContainer,PlantNurseryBlockInfo,PlantNurserySubBlockInfo,
+  TypeOfFlora,SubTypeOfFlora,PlantNurseryInfoToScrollDown,StyledIconButton,StyledKeyboardArrowDownIcon} from "./style"
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -141,13 +98,11 @@ const PlantNursery = () => {
     20,
   ];
 
-  const scrollDownPage = () => {
-    const maxHeight = document.body.scrollHeight;
-    window.scrollTo({ top: maxHeight, behavior: 'smooth' });
+  const scrollDown = () => {
+    window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
   };
 
   const openDialogForImage = (imageNumber) => {
-    console.log(imageNumber)
     setImageNumber(imageNumber)
     setOpenDialog(true)
   };
@@ -177,7 +132,7 @@ const PlantNursery = () => {
               return (
                 <div key={index}>
                   <li>
-                    <LocalFloristIcon style={{ position: 'relative', top: '6px' }} />
+                    <LocalFloristIcon />
                     <b>{item.type}</b>
                   </li>
                   <p>{item.description}</p>
@@ -194,7 +149,7 @@ const PlantNursery = () => {
             return (
               <Grid className={classes.gridWithImage} key={item} item onClick={() => openDialogForImage(item)}>
                 <Paper className={classes.paper}>
-                  <img height="100%" width="100%" src={`/images/plant/${item}-min-min.jpg`} />
+                  <img alt="plant" height="100%" width="100%" src={`/images/plant/${item}-min-min.jpg`} />
                 </Paper>
               </Grid>
             )
@@ -205,9 +160,16 @@ const PlantNursery = () => {
         <p>Jeśli chcesz zobaczyć wiecej zdjęć to zapraszamy na naszą stronę
         na facebooku! Link znajdziesz na dole strony.
         </p>
-        <IconButton aria-label="Scroll down" onClick={scrollDownPage}>
-          <ExpandMoreIcon fontSize="large" />
-        </IconButton>
+        <StyledIconButton
+            color="primary"
+            aria-label="upload picture"
+            component="span"
+            onClick={scrollDown}
+          >
+            <StyledKeyboardArrowDownIcon
+              style={{ width: "100px", height: "100px" }}
+            />
+          </StyledIconButton>
       </PlantNurseryInfoToScrollDown>
       <Parallax image={imagePlantNurseryThreeParallax} />
       <SimpleDialog open={isOpenDialog} onClose={closeDialogForImage} imageNumber={imageNumber} />
@@ -227,9 +189,9 @@ const SimpleDialog = (props) => {
       <IconButton aria-label="Scroll down" onClick={handleClose} style={{position: 'absolute', right: '0'}}>
         <CloseIcon fontSize="large" />
         </IconButton>
-      <img height="100%" width="100%" src={`/images/plant/${imageNumber}-min-min.jpg`} />
+      <img alt='plant' height="100%" width="100%" src={`/images/plant/${imageNumber}-min-min.jpg`} />
     </Dialog>
   );
 }
 
-export default memo(PlantNursery);
+export default PlantNursery;

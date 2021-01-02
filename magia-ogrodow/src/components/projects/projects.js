@@ -1,62 +1,8 @@
-import React, { memo } from "react";
+import React from "react";
 import imageProjectParallax from '../../images/project.jpg';
-import styled from "styled-components";
 import Parallax from '../parallax';
 import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
-
-
-const ProjectBlockInfo = styled.div`
-  text-align: center;
-  border-bottom: 1px solid rgb(198, 198, 198);
-  padding: 40px;
-  background-color: #e6e6e6;
-
-  div {
-    max-width: 1000px;
-    margin: auto;
-  }
-`;
-
-const ProjectListAndExamples = styled.div`
-  max-width: 1000px;
-  margin: auto;
-  padding: 50px;
-  display: flex;
-
-  ul {
-    list-style-type: none;
-  }
-  li {
-    margin: 20px;
-  }
-
-@media only screen and (max-width: 560px) {
-  display: block;
-}
-`;
-
-const BlockWithMovie = styled.div`
-  text-align: center;
-  padding-top: 40px;
-  padding-bottom: 80px;
-  border-top: 1px solid #c6c6c6;
-
-  iframe {
-    border-radius: 10px;
-    margin: auto;
-    width:560px;
-    height:315px;
-  }
-
-  @media only screen and (max-width: 560px) {
-    iframe {
-      border-radius: 10px;
-      margin: auto;
-      width:95vw;
-      height:315px;
-    }
-  }
-`;
+import {ProjectBlockInfo,ProjectListAndExamples,BlockWithMovie} from "./style.js"
 
 const Projects = () => {
 
@@ -83,27 +29,27 @@ const Projects = () => {
           <h3>Usługi projektowe</h3>
           <ul>
             <li>
-              <LocalFloristIcon style={{ position: 'relative', top: '6px' }} />
+              <LocalFloristIcon  />
                     projekty koncepcyjne ogrodów i terenów zieleni
                 </li>
             <li>
-              <LocalFloristIcon style={{ position: 'relative', top: '6px' }} />
+              <LocalFloristIcon  />
                     projekty zieleni przy firmach, hotelach, kawiarniach, restauracjach
                 </li>
             <li>
-              <LocalFloristIcon style={{ position: 'relative', top: '6px' }} />
+              <LocalFloristIcon  />
                     projekty zieleni osiedlowej
                 </li>
             <li>
-              <LocalFloristIcon style={{ position: 'relative', top: '6px' }} />
+              <LocalFloristIcon  />
                     projekty zieleni na tarasach, balkonach
                 </li>
             <li>
-              <LocalFloristIcon style={{ position: 'relative', top: '6px' }} />
+              <LocalFloristIcon  />
               nadzór autorski podczas realizacji projektów
                 </li>
             <li>
-              <LocalFloristIcon style={{ position: 'relative', top: '6px' }} />
+              <LocalFloristIcon  />
               wizualizacje
                 </li>
           </ul>
@@ -112,26 +58,26 @@ const Projects = () => {
           <h3>Przykładowy projekt zawiera</h3>
           <ul>
             <li>
-              <LocalFloristIcon style={{ position: 'relative', top: '6px' }} />
+              <LocalFloristIcon  />
               projekt koncepcyjny zagospodarowania terenu
                 </li>
             <li>
-              <LocalFloristIcon style={{ position: 'relative', top: '6px' }} />
+              <LocalFloristIcon  />
               projekt techniczny  z doborem roślin
                 </li>
             <li>
-              <LocalFloristIcon style={{ position: 'relative', top: '6px' }} />
+              <LocalFloristIcon  />
               wykaz roślinności z uwagami pielęgnacyjnymi
                 </li>
             <li>
-              <LocalFloristIcon style={{ position: 'relative', top: '6px' }} />
+              <LocalFloristIcon  />
               wizualizacje
                 </li>
           </ul>
         </div>
       </ProjectListAndExamples>
       <BlockWithMovie>
-      <iframe src='https://www.youtube.com/embed/gtWyCMKXjMk' frameBorder="0" webkitallowfullscreen="true"  
+      <iframe title="project movie" src='https://www.youtube.com/embed/gtWyCMKXjMk' frameBorder="0" webkitallowfullscreen="true"  
         mozallowfullscreen="true"  allowFullScreen="true" >
       </iframe>
     </BlockWithMovie>
@@ -139,4 +85,4 @@ const Projects = () => {
   );
 };
 
-export default memo(Projects);
+export default Projects;

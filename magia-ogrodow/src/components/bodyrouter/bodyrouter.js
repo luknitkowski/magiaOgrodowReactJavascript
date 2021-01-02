@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import AboutUs from "../aboutUs";
@@ -12,17 +12,17 @@ const BodyRouter = () => {
   return (
     <div>
       <Switch>
-        <Route exact path="/aboutUs" component={AboutUs} />
-        <Route exact path="/plantNursery" component={PlantNursery} />
-        <Route exact path="/projects" component={Projects} />
-        <Route exact path="/gardening" component={Gardening} />
-        <Route exact path="/gardenCare" component={GardenCare} />
-        <Route exact path="/contact" component={Contact} />
-        <Redirect to="/" />
+        <Route path="/aboutUs" component={AboutUs} exact/>
+        <Route path="/plantNursery" component={PlantNursery} />
+        <Route path="/projects" component={Projects} />
+        <Route path="/gardening" component={Gardening} />
+        <Route path="/gardenCare" component={GardenCare} />
+        <Route path="/contact" component={Contact} />
+        {/* <Redirect to="/" /> */}
       </Switch>
     </div>
   );
 };
 
-export default memo(BodyRouter);
+export default BodyRouter;
 

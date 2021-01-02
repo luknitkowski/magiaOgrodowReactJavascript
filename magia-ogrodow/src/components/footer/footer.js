@@ -1,44 +1,7 @@
-import React, { memo } from "react";
+import React from "react";
 import Logo from '../../images/logo.png';
 import DD from '../../images/dd.png';
-import styled from "styled-components";
-
-
-const FooterBlock = styled.footer`
-  background-color: lightgrey;
-  text-align: center;
-`;
-
-const FooterIMG = styled.img`
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top: -40px;
-`;
-
-const FooterMainBlock = styled.div`
-  margin-bottom: 40px;
-  padding-left: 30px;
-  padding-right: 30px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
-  img {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  @media only screen and (max-width: 650px) {
-    display: block;
-  }
-`;
-
-const FooterCopyright = styled.div`
-  text-align: center;
-  padding: 20px;
-  border-top: 1px solid gray;
-`;
+import {FooterBlock,FooterIMG, FooterMainBlock, FooterCopyright} from './style'
 
 const Footer = () => {
 
@@ -72,4 +35,4 @@ const Footer = () => {
   );
 };
 
-export default memo(Footer);
+export default Footer;

@@ -102,7 +102,7 @@ const App = (props) => {
           <Toolbar>
             {matches ? 
               <HorizontalMenu /> : <SideBar /> }
-              {matches ? <div></div>: <img height="50" src={logo} className={classes.logo}/>}
+              {matches ? <div></div>: <img alt="logo" height="50" src={logo} className={classes.logo}/>}
           </Toolbar>
         </AppBar>
       </HideOnScroll>

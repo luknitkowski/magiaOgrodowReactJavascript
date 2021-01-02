@@ -1,71 +1,11 @@
-import React, { memo } from "react";
+import React from "react";
 import Parallax from '../parallax';
 import imageAboutUsParallax from '../../images/dzialka.jpg';
 import imageAboutUsOwnerPicture from '../../images/owner-picture.jpg';
-import styled from "styled-components";
-
-
-const AboutUsBlockInfo = styled.div`
-  text-align: center;
-  border-bottom: 1px solid rgb(198, 198, 198);
-  padding-top: 70px;
-  padding-bottom: 70px;
-  background-color: #e6e6e6;
-`;
-
-const SubBlockInfo = styled.div`
-  max-width: 1000px;
-  margin: auto;
-  padding-bottom: 50px;
-`;
-
-const Signature = styled.p`
-  -ms-transform: skewY(-5deg); /* IE 9 */
-  transform: skewY(-5deg);
-  font-family: "Herr Von Muellerhoff", cursive;
-  font-size: 20px;
-  float: right;
-  right: 20%;
-  position: relative;
-`;
-
-const SubMainInfoBlock = styled.div`
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const SubMainInfoBlockH5 = styled.h5`
-  font-size: 20px;
-  text-align: center;
-`;
-
-const MainInfoBlock = styled.div`
-  max-width: 1000px;
-  margin: auto;
-  display: flex;
-  @media only screen and (max-width: 650px) {
-    display: block;
-  }
-`;
-
-const MainInfoBlockIMG = styled.div`
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const IMG = styled.img`
-  transition: transform 0.2s;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  border-radius: 5px;
-  margin: auto;
-`;
-
+import {
+  AboutUsBlockInfo, SubBlockInfo, Signature, SubMainInfoBlock,
+  SubMainInfoBlockH5, MainInfoBlock, MainInfoBlockIMG, IMG
+} from './style'
 
 const AboutUs = () => {
 
@@ -103,4 +43,4 @@ const AboutUs = () => {
   );
 };
 
-export default memo(AboutUs);
+export default AboutUs;
