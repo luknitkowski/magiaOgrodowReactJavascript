@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
       </FooterMainBlock>
       <FooterCopyright>
-        ©2020 Magia Ogrodów CREATED BY <a href="https://www.linkedin.com/in/lukasz-nitkowski-21025b132/" target="_blank" rel="noreferrer">Łukasz Nitkowski</a>
+        ©{new Date().getFullYear()} Magia Ogrodów CREATED BY <a href="https://www.linkedin.com/in/lukasz-nitkowski-21025b132/" target="_blank" rel="noreferrer">Łukasz Nitkowski</a>
       </FooterCopyright>
     </FooterBlock>
   );
