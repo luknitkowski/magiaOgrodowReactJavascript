@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
@@ -11,6 +11,31 @@ const Transition = forwardRef(function Transition(props, ref) {
 });
 
 const FullDialog = ({ dialogConfig, closeFullDialog }) => {
+  const [index, setIndex] = useState(0);
+  const [listOfImages, setListOfImages] = useState([...dialogConfig.listOfImages]);
+  const handleSelect = (selectedIndex, e) => {
+    if(selectedIndex === listOfImages.length){
+      if(index === 0){
+        setIndex(listOfImages.length - 1);
+      } else if(index === listOfImages.length - 1){
+        setIndex(0);
+      }
+    } else {
+      setIndex(selectedIndex);
+    }
+  };
+
+  useEffect(() => {
+    if(dialogConfig.isOpen){
+      setListOfImages([...dialogConfig.listOfImages])
+      setIndex(0);
+      setTimeout(function(){ 
+        let olList = document.getElementsByClassName('carousel-indicators')
+        let ol = olList[0]
+        ol.removeChild(ol.lastElementChild);
+       }, 100);
+    }
+  }, [dialogConfig.isOpen])
 
   const closeDialog = () => {
     closeFullDialog();
@@ -22,8 +47,8 @@ const FullDialog = ({ dialogConfig, closeFullDialog }) => {
         open={dialogConfig.isOpen}
         TransitionComponent={Transition}
       >
-        <Carousel>
-          {[...dialogConfig.listOfImages].map( (imagePath, index)  => {
+        <Carousel activeIndex={index} onSelect={handleSelect}>
+          {[...listOfImages].map( (imagePath, index)  => {
             return (
               <Carousel.Item key={index} style={{maxHeight:'100vh'}}>
               <img

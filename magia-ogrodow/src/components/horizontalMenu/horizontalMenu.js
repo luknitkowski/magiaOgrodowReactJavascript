@@ -12,7 +12,6 @@ import {HorizontalMenuContainer,StyledBottomNavigation, StyledBottomNavigationAc
 const HorizontalMenu = () => {
   const pathname = window.location.pathname;
   const [value, setValue] = useState(pathname);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
