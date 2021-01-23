@@ -11,9 +11,14 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 
 import Dialog from '@material-ui/core/Dialog';
+import Bounce from 'react-reveal/Bounce';
 
-import {PlantNurseryContainer,PlantNurseryBlockInfo,PlantNurserySubBlockInfo,
-  TypeOfFlora,SubTypeOfFlora,PlantNurseryInfoToScrollDown,StyledIconButton,StyledKeyboardArrowDownIcon} from "./style"
+import {
+  PlantNurseryContainer, PlantNurseryBlockInfo, PlantNurserySubBlockInfo,
+  TypeOfFlora, SubTypeOfFlora, PlantNurseryInfoToScrollDown, StyledIconButton, StyledKeyboardArrowDownIcon
+} from "./style"
+import Fade from 'react-reveal/Fade';
+import Slide from 'react-reveal/Slide';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -115,61 +120,70 @@ const PlantNursery = () => {
     <PlantNurseryContainer>
       <Parallax image={imagePlantNurseryParallax} />
       <PlantNurseryBlockInfo>
-        <PlantNurserySubBlockInfo>
-          <h2>NASZA SZKÓŁKA</h2>
-          <p>W naszej szkółce znajdziecie Państwo rośliny w pojemnikach, które można wysadzać przez cały okres wegetacyjny
-          tj. od wczesnej wiosny do próżnej jesieni. Dokładamy wszelkich starań, aby nasz materiał roślinny był najwyższej jakości .
-          Z każdym sezonem zwiększamy nasz asortyment o ciekawe gatunki i odmiany, których stale przybywa na rynku ogrodniczym.
-          Zadowolenie i radość klientów to nasz priorytet.
+        <Fade top cascade>
+          <PlantNurserySubBlockInfo>
+            <h2>NASZA SZKÓŁKA</h2>
+            <p>W naszej szkółce znajdziecie Państwo rośliny w pojemnikach, które można wysadzać przez cały okres wegetacyjny
+            tj. od wczesnej wiosny do próżnej jesieni. Dokładamy wszelkich starań, aby nasz materiał roślinny był najwyższej jakości .
+            Z każdym sezonem zwiększamy nasz asortyment o ciekawe gatunki i odmiany, których stale przybywa na rynku ogrodniczym.
+            Zadowolenie i radość klientów to nasz priorytet.
           </p>
-        </PlantNurserySubBlockInfo>
+          </PlantNurserySubBlockInfo>
+        </Fade>
       </PlantNurseryBlockInfo>
       <TypeOfFlora>
+
         <SubTypeOfFlora>
-          <h3>Posiadamy:</h3>
-          <ul>
-            {bushesList.map((item, index) => {
-              return (
-                <div key={index}>
-                  <li>
-                    <LocalFloristIcon />
-                    <b>{item.type}</b>
-                  </li>
-                  <p>{item.description}</p>
-                </div>
-              )
-            })}
-          </ul>
+          <Slide left cascade>
+            <h3>Posiadamy:</h3>
+            <ul>
+              {bushesList.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <li>
+                      <LocalFloristIcon />
+                      <b>{item.type}</b>
+                    </li>
+                    <p>{item.description}</p>
+                  </div>
+                )
+              })}
+            </ul>
+          </Slide>
         </SubTypeOfFlora>
       </TypeOfFlora>
       <Parallax image={imagePlantNurseryTwoParallax} />
       <Grid item xs={12}>
         <Grid container justify="center">
-          {plantImages.map((item) => {
-            return (
-              <Grid className={classes.gridWithImage} key={item} item onClick={() => openDialogForImage(item)}>
-                <Paper className={classes.paper}>
-                  <img alt="plant" height="100%" width="100%" src={`/images/plant/${item}-min-min.jpg`} />
-                </Paper>
-              </Grid>
-            )
-          })}
+          <Bounce left cascade>
+            {plantImages.map((item) => {
+              return (
+                <Grid className={classes.gridWithImage} key={item} item onClick={() => openDialogForImage(item)}>
+                  <Paper className={classes.paper}>
+                    <img alt="plant" height="100%" width="100%" src={`/images/plant/${item}-min-min.jpg`} />
+                  </Paper>
+                </Grid>
+              )
+            })}
+          </Bounce>
         </Grid>
       </Grid>
       <PlantNurseryInfoToScrollDown>
+      <Bounce right cascade>
         <p>Jeśli chcesz zobaczyć wiecej zdjęć to zapraszamy na naszą stronę
         na facebooku! Link znajdziesz na dole strony.
         </p>
         <StyledIconButton
-            color="primary"
-            aria-label="upload picture"
-            component="span"
-            onClick={scrollDown}
-          >
-            <StyledKeyboardArrowDownIcon
-              style={{ width: "100px", height: "100px" }}
-            />
-          </StyledIconButton>
+          color="primary"
+          aria-label="upload picture"
+          component="span"
+          onClick={scrollDown}
+        >
+          <StyledKeyboardArrowDownIcon
+            style={{ width: "100px", height: "100px" }}
+          />
+        </StyledIconButton>
+        </Bounce>
       </PlantNurseryInfoToScrollDown>
       <Parallax image={imagePlantNurseryThreeParallax} />
       <SimpleDialog open={isOpenDialog} onClose={closeDialogForImage} imageNumber={imageNumber} />
@@ -186,9 +200,9 @@ const SimpleDialog = (props) => {
 
   return (
     <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
-      <IconButton aria-label="Scroll down" onClick={handleClose} style={{position: 'absolute', right: '0'}}>
+      <IconButton aria-label="Scroll down" onClick={handleClose} style={{ position: 'absolute', right: '0' }}>
         <CloseIcon fontSize="large" />
-        </IconButton>
+      </IconButton>
       <img alt='plant' height="100%" width="100%" src={`/images/plant/${imageNumber}-min-min.jpg`} />
     </Dialog>
   );

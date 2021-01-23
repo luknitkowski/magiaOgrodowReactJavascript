@@ -2,7 +2,10 @@ import React from "react";
 import imageProjectParallax from '../../images/project.jpg';
 import Parallax from '../parallax';
 import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
-import {ProjectBlockInfo,ProjectListAndExamples,BlockWithMovie} from "./style.js"
+import {ProjectBlockInfo,ProjectListAndExamples,BlockWithMovie} from "./style.js";
+import Fade from 'react-reveal/Fade';
+import LightSpeed from 'react-reveal/LightSpeed';
+import Zoom from 'react-reveal/Zoom';
 
 const Projects = () => {
 
@@ -11,6 +14,7 @@ const Projects = () => {
       <Parallax image={imageProjectParallax} />
       <ProjectBlockInfo>
         <div>
+        <Fade top>
           <p>Ładny ogród nie jest na ogól dziełem przypadku, lecz wynikiem dobrego planowania.
           Zarówno zakładanie ogrodu, jak i jego przekształcanie wymagają gruntownych rozważań.
           Na ogród nie można patrzeć jak na sumę poszczególnych części, należy go traktować jako całość ,
@@ -22,10 +26,12 @@ const Projects = () => {
           dotyczących ogrodu. Na następnym spotkaniu przedstawie dwie koncepcie o których porozmawiamy wspólnie i
           wybierzemy jedną, na podstawie której powstanie projekt.
         </p>
+        </Fade>
         </div>
       </ProjectBlockInfo>
       <ProjectListAndExamples>
         <div>
+        <LightSpeed left cascade>
           <h3>Usługi projektowe</h3>
           <ul>
             <li>
@@ -53,8 +59,10 @@ const Projects = () => {
               wizualizacje
                 </li>
           </ul>
+        </LightSpeed>
         </div>
         <div>
+        <LightSpeed right cascade>
           <h3>Przykładowy projekt zawiera</h3>
           <ul>
             <li>
@@ -74,12 +82,15 @@ const Projects = () => {
               wizualizacje
                 </li>
           </ul>
+          </LightSpeed>
         </div>
       </ProjectListAndExamples>
       <BlockWithMovie>
+      <Zoom bottom>
       <iframe title="project movie" src='https://www.youtube.com/embed/gtWyCMKXjMk' frameBorder="0" webkitallowfullscreen="true"  
         mozallowfullscreen="true"  allowFullScreen="true" >
       </iframe>
+      </Zoom>
     </BlockWithMovie>
     </div>
   );

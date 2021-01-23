@@ -3,6 +3,8 @@ import Parallax from '../parallax';
 import imageGardenCareParallax from '../../images/garden-care.jpg';
 import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
 import {GardenCareContainer,GardenCareBlockInfo,GardenCareSubBlockInfo,GardenCareExamplesExamples} from "./style"
+import Fade from 'react-reveal/Fade';
+import LightSpeed from 'react-reveal/LightSpeed';
 
 const GardenCare = () => {
 
@@ -11,13 +13,16 @@ const GardenCare = () => {
       <Parallax image={imageGardenCareParallax} />
       <GardenCareBlockInfo>
         <GardenCareSubBlockInfo>
+        <Fade top>
           <p>W czystym i zadbanym ogrodzie odpoczywa się znacznie przyjemniej. 
             W naszej ofercie znajdziecie Państwo także tę usługę. Koszt zalezy od indywidualnej oceny stanu ogrodu oraz nakładu pracy.
           </p>
+          </Fade>
         </GardenCareSubBlockInfo>
       </GardenCareBlockInfo>
       <GardenCareExamplesExamples>
         <div>
+        <LightSpeed right cascade>
           <h3>Usługi projektowe</h3>
           <ul>
             <li>
@@ -57,6 +62,7 @@ const GardenCare = () => {
               nasadzenia
             </li>
           </ul>
+          </LightSpeed>
         </div>
       </GardenCareExamplesExamples>
     </GardenCareContainer>
