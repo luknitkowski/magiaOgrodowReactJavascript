@@ -47,6 +47,10 @@ const SideBar = () => {
     right: false,
   });
 
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -54,7 +58,6 @@ const SideBar = () => {
     ) {
       return;
     }
-
     setState({ ...state, [anchor]: open });
   };
 
@@ -68,7 +71,7 @@ const SideBar = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <Link to="/" className={classes.link}>
+        <Link to="/" className={classes.link} onClick={scrollTop}>
           <ListItem button key="AboutUs">
             <ListItemIcon>
               <FaceIcon />
@@ -76,7 +79,7 @@ const SideBar = () => {
             <ListItemText primary="O NAS" />
           </ListItem>
         </Link>
-        <Link to="/plantNursery" className={classes.link}>
+        <Link to="/plantNursery" className={classes.link} onClick={scrollTop}>
           <ListItem button key="plantNursery">
             <ListItemIcon>
               <HomeWorkIcon />
@@ -84,7 +87,7 @@ const SideBar = () => {
             <ListItemText primary="SZKÓŁKA ROŚLIN" />
           </ListItem>
         </Link>
-        <Link to="/projects" className={classes.link}>
+        <Link to="/projects" className={classes.link} onClick={scrollTop}>
           <ListItem button key="projects">
             <ListItemIcon>
               <CreateIcon />
@@ -92,7 +95,7 @@ const SideBar = () => {
             <ListItemText primary="PROJEKTY" />
           </ListItem>
         </Link>
-        <Link to="/gardening" className={classes.link}>
+        <Link to="/gardening" className={classes.link} onClick={scrollTop}>
           <ListItem button key="gardening">
             <ListItemIcon>
               <FilterVintageIcon />
@@ -100,7 +103,7 @@ const SideBar = () => {
             <ListItemText primary="ZAKŁADANIE OGRODÓW" />
           </ListItem>
         </Link>
-        <Link to="/gardenCare" className={classes.link}>
+        <Link to="/gardenCare" className={classes.link} onClick={scrollTop}>
           <ListItem button key="gardenCare">
             <ListItemIcon>
               <LocalFloristIcon />
@@ -108,7 +111,7 @@ const SideBar = () => {
             <ListItemText primary="PIELĘGNACJA OGRODÓW" />
           </ListItem>
         </Link>
-        <Link to="/contact" className={classes.link}>
+        <Link to="/contact" className={classes.link} onClick={scrollTop}>
           <ListItem button key="contact">
             <ListItemIcon>
               <PhoneIcon />

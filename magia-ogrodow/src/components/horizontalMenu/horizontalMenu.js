@@ -14,6 +14,11 @@ const HorizontalMenu = () => {
   const [value, setValue] = useState(pathname);
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    scrollTop()
+  };
+
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
   };
 
   return (
