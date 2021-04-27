@@ -3,6 +3,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden; /* react-reveal sometimes makes unwanted effect on some components */
 };
 
 body {
