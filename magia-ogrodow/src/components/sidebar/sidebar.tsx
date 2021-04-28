@@ -1,5 +1,7 @@
 import React, { useState} from "react";
 import clsx from "clsx";
+import { Link } from "react-router-dom";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
@@ -8,14 +10,21 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Link } from "react-router-dom";
-
 import FaceIcon from "@material-ui/icons/Face";
 import PhoneIcon from '@material-ui/icons/Phone';
 import CreateIcon from '@material-ui/icons/Create';
 import HomeWorkIcon from '@material-ui/icons/HomeWork';
 import FilterVintageIcon from '@material-ui/icons/FilterVintage';
 import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
+
+type Anchor = 'top' | 'left' | 'bottom' | 'right';
+
+type WhatStateResult = {
+  top: boolean,
+  left: boolean,
+  bottom: boolean,
+  right: boolean,
+}
 
 const useStyles = makeStyles({
   list: {
@@ -40,28 +49,29 @@ const useStyles = makeStyles({
 const SideBar = () => {
   const classes = useStyles();
 
-  const [state, setState] = useState({
+  const [state, setState] = useState<WhatStateResult>({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
 
-  const scrollTop = () => {
+  const scrollTop = (): void => {
     window.scrollTo(0, 0);
   };
 
-  const toggleDrawer = (anchor, open) => (event) => {
+  const toggleDrawer = (anchor: Anchor, open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift')
     ) {
       return;
     }
     setState({ ...state, [anchor]: open });
   };
 
-  const list = (anchor) => (
+  const list = (anchor: Anchor) => (
     <div
       className={clsx(classes.list, {
         [classes.fullList]: anchor === "top" || anchor === "bottom",
