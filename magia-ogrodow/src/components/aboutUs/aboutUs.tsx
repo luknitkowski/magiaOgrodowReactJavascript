@@ -7,7 +7,7 @@ import {
   AboutUsBlockInfo, SubBlockInfo, Signature, SubMainInfoBlock,
   SubMainInfoBlockH5, MainInfoBlock, MainInfoBlockIMG, IMG
 } from './styled';
-import AboutUsConfig from '../../configuration';
+import AboutUsConfig from '../../configuration/aboutUsConfig';
 
 import imageAboutUsParallax from '../../images/dzialka.jpg';
 import imageAboutUsOwnerPicture from '../../images/owner-picture.jpg';
