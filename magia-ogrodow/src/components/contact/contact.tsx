@@ -1,17 +1,22 @@
-import React from "react";
-import Parallax from '../parallax';
-import imagePlantNurseryParallax from '../../images/contact.jpg';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import {
-  ContactBlockInfo, ContactSubBlockInfo, StyledIconButton,
-  StyledKeyboardArrowDownIcon, BlockWithMap
-} from './style';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 
+import Parallax from '../parallax';
+import ContactConfig from '../../configuration/contactConfig';
+import FooterConfig from '../../configuration/footerConfig';
+import AboutUsConfig from '../../configuration/aboutUsConfig';
+import {
+  ContactBlockInfo, ContactSubBlockInfo, StyledIconButton,
+  StyledKeyboardArrowDownIcon, BlockWithMap
+} from './styled';
+
+import imagePlantNurseryParallax from '../../images/contact.jpg';
+
+
 const Contact = () => {
 
-  const scrollDown = () => {
+  const scrollDown = (): void => {
     window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
   };
 
@@ -22,8 +27,7 @@ const Contact = () => {
         <ContactSubBlockInfo>
           <Fade top>
             <h2>DOJAZD I KONTAKT</h2>
-            <p>Szkółka zlokalizowana jest na granicy Rumi oraz Dębogórze Wybudowanie. Istnieje możliwość dojazdu autobusem z dworca PKP Rumia nr 86. Szczegółowe informacje jak numer telefonu, adres czy email można znaleźć na dole strony w stopce.
-          </p>
+            <p>{ContactConfig.howToGetThere}</p>
             <StyledIconButton
               color="primary"
               aria-label="upload picture"
@@ -46,10 +50,10 @@ const Contact = () => {
             />
             <Marker position={[54.572573, 18.429189]}>
               <Popup>
-                <b>Magia Ogrodów. Beata Kulling-Nitkowska</b><br />
+                <b>Magia Ogrodów. {AboutUsConfig.signature}</b><br />
     Adres:<br />
-    Dębogórska 8<br />
-    84-230 Dębogórze Wybudowanie
+    {FooterConfig.street}<br />
+    {FooterConfig.city}
     </Popup>
             </Marker>
           </MapContainer>

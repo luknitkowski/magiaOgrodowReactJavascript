@@ -1,4 +1,3 @@
-import React from "react";
 import Flip from 'react-reveal/Flip';
 
 import { FooterBlock, FooterIMG, FooterMainBlock, FooterCopyright } from './styled'
