@@ -5,3 +5,5 @@ declare module 'react-router-dom';
 declare module 'react-leaflet';
 declare module "@material-ui/core/IconButton";
 declare module 'clsx';
+declare module '@material-ui/core/BottomNavigation';
+declare module '@material-ui/core/BottomNavigationAction';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import FaceIcon from "@material-ui/icons/Face";
 import PhoneIcon from '@material-ui/icons/Phone';
 import CreateIcon from '@material-ui/icons/Create';
@@ -6,18 +6,21 @@ import HomeWorkIcon from '@material-ui/icons/HomeWork';
 import FilterVintageIcon from '@material-ui/icons/FilterVintage';
 import LocalFloristIcon from '@material-ui/icons/LocalFlorist';
 import { Link } from 'react-router-dom';
-import logo from '../../images/logo.png'
-import {HorizontalMenuContainer,StyledBottomNavigation, StyledBottomNavigationAction} from './style.js'
+
+import {HorizontalMenuContainer,StyledBottomNavigation, StyledBottomNavigationAction} from './styled';
+
+import logo from '../../images/logo.png';
 
 const HorizontalMenu = () => {
   const pathname = window.location.hash;
-  const [value, setValue] = useState(pathname);
-  const handleChange = (event, newValue) => {
+  const [value, setValue] = useState<string>(pathname);
+
+  const handleChange = (event: Event, newValue:string): void => {
     setValue(newValue);
-    scrollTop()
+    scrollTop();
   };
 
-  const scrollTop = () => {
+  const scrollTop = (): void => {
     window.scrollTo(0, 0);
   };
 
