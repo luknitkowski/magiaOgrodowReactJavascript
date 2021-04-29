@@ -1,20 +1,19 @@
-import React from "react";
-import SideBar from "./components/sidebar";
-import HorizontalMenu from "./components/horizontalMenu";
-import BodyRouter from "./components/bodyrouter";
-import Footer from "./components/footer";
-import { makeStyles } from "@material-ui/core/styles";
-
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-
-import PropTypes from "prop-types";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import Slide from "@material-ui/core/Slide";
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import PropTypes from "prop-types";
+
+import SideBar from "./components/sidebar";
+import HorizontalMenu from "./components/horizontalMenu";
+import BodyRouter from "./components/bodyrouter";
+import Footer from "./components/footer";
+
 import logo from './images/logo.png'
 
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +33,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const ScrollTop = (props) => {
+type PropsScrollTopType = {
+  children: Element,
+  window : Function
+}
+
+const ScrollTop = (props: PropsScrollTopType) => {
   const { children, window } = props;
   const classes = useStyles();
   const trigger = useScrollTrigger({
@@ -43,7 +47,7 @@ const ScrollTop = (props) => {
     threshold: 100,
   });
 
-  const handleClick = (event) => {
+  const handleClick = (event: any): void => {
     const anchor = (event.target.ownerDocument || document).querySelector(
       "#back-to-top-anchor"
     );
@@ -71,7 +75,11 @@ ScrollTop.propTypes = {
   window: PropTypes.func,
 };
 
-function HideOnScroll(props) {
+type PropsHideOnScroll = {
+  children: any
+}
+
+function HideOnScroll(props: PropsHideOnScroll) {
   const { children } = props;
   const trigger = useScrollTrigger();
 
@@ -91,7 +99,7 @@ HideOnScroll.propTypes = {
   window: PropTypes.func,
 };
 
-const App = (props) => {
+const App = (props: any) => {
   const classes = useStyles();
   const matches = useMediaQuery('(min-width:750px)');
 
