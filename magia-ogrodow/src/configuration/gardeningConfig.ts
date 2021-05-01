@@ -98,11 +98,41 @@ const GardeningConfig: GardeningConfigType = {
     signature: 'Tan Twan Eng',
     gardenExamples: [
         {
-            title:
-            author:
-            info:
-            keyForButton: 
-        }
+            title: 'Ogród przydomowy 845 m² – Rumia',
+            author: 'Beata Kulling- Nitkowska',
+            info: 'Ogród został zmodernizowany ze starego ogrodu. Część roślin została zaadaptowana, jak na przykład wysoki żywopłot, dzięki temu uzyskaliśmy zieloną ścianę i intymność. Drugim zachowanym elementem są średniej wysokości żywopłoty bukszpanowe, które wyznaczyły strefy. Punktem centralnym stał się kwadrat , w którym znajduje się mini fontanna otoczona różami, szałwią i trawami. Przestrzeń ta przyciąga wzrok widza przez cały czas. Pozostałe strefy to skalniak przy altanie i trawnik na którym może odbywać się aktywność dzieci. Wprowadziliśmy rośliny kwitnące , jak : liliowce, przetaczniki, hortensje, rudbekie , rododendrony. Od wczesnej wiosny do jesieni cały czas coś kwitnie.',
+            keyForButton: 'first'
+        },
+        {
+            title: 'Ogród przydomowy',
+            author: 'Beata Kulling- Nitkowska',
+            info: 'Przekształcenie zaniedbanego , starego ogrodu polegało na uporządkowaniu przestrzeni. Wprowadzono linie proste i geometryczne donice, dzięki temu pozbyliśmy się chaosu i zastanego bałaganu. Jak to w starszych ogrodach pozostawiliśmy roślinność , którą można poprzez odpowiednią pielęgnację przywrócić do życia . Takim elementem był na pewno wysoki żywopłot. Na życzenie klienta zaproponowane rośliny na rabaty wymagają minimum pracy.',
+            keyForButton: 'second'
+        },
+        {
+            title: 'Ogród przydomowy - Mrzezino,',
+            author: 'Zofia Dzielińska',
+            info: 'W tym ogrodzie byliśmy wykonawcami zaplanowanego już ogrodu przez naszą koleżankę , z którą współpracujemy Zofią Dzielińską. Zaproponowane owalne kształty , przenikające i stykające się z sobą dały spójność przestrzeni. Ogród kwitnący, tętniący kolorem i życiem wielu owadów. W tym ogrodzie nie posadziliśmy , ani jednego iglaka . Oprócz mnóstwa bylin, znalazł swoje miejsce warzywniak i szklarenka.',
+            keyForButton: 'third'
+        },
+        {
+            title: 'Ogród nad jeziorem - Nadole',
+            author: 'Zofia Dzielińska',
+            info: 'Pierwszy nasz tak duży ogród, dlatego na zawsze pozostanie w mojej pamięci. Przedstawiana działka ma kształt wąskiego prostokąta, z lekkim spadkiem w kierunku jeziora. Zastaliśmy już położone nawierzchnie . Musieliśmy wkomponować się w istniejące wygrodzone przestrzenie. Ogród podzieliliśmy na trzy strefy . Pierwsza to przedogródek, reprezentacyjny zapraszający do domu . Zaproponowana roślinność biegnie w kształcie fali wychodzącej z pierwszego podjazdu , biegnącej wzdłuż dwóch wejść do budynku. Znalazły tu miejsce róże okrywowe, berberysy , tuje kuliste. Druga strefa znajduje się z boku budynku i ma charakter leśny , gdyż została wkomponowana w już istniejące sosny. Znalazły tam miejsce rośliny tolerujące cień : Rododendrony, żurawki, hosty, rodgersje. Trzecia wydzielona przestrzeń znajduje się po drugiej stronie budynku, blisko jeziora. W tej części ogrodu przez spadek terenu stworzył się taras , który kończy mała skarpa Zagospodarowana ona została roślinami zadarniającymi : jałowce, skalniaki, runianka , żurawki.',
+            keyForButton: 'fourth'
+        },
+        {
+            title: 'Przedogródek - Rumia',
+            author: 'Zofia Dzielińska',
+            info: 'Mały przedogródek w kształcie litery L. Mały , ale dużo się się dzieje. Rabty wydzieliły łuki i dla ich podkreślenia zastosowano dwa rodzaje kamienia, ciemny i jasny. Jedna część skąpana w słońcu , dlatego miejsce znalazły tam trawy i w różnych okresach kwitnące byliny. Z drugiej strony budynku poprzez zastane drzewa i krzewy zamieszkały rośliny cienia i półcienia. Zakątek ten mieni się kolorami . Dwie części przedogródka połączył trawnik w kształcie księżyca.',
+            keyForButton: 'fifth'
+        },
+        {
+            title: 'Przestrzeń publiczna przed blokiem - Rumia',
+            author: 'Zofia Dzielińska',
+            info: 'Czasami trzeba zaprojektować przestrzeń publiczną , która należy do Wszystkich. Takie miejsca oprócz funkcji dekoracyjnej muszą być funkcjonalne. Zadbane wejścia , czy przdogródki w blokach podnoszą atrakcyjność takiego miejsca i cieszą samych mieszkańców, wpływając pozytywnie na ich samopoczucie , klimat oraz różnorodność biologiczną. Proponowane rośliny powinny być samoobsługowe , jak i odporne na warunki pogodowe np. susze.',
+            keyForButton: 'sixth'
+        },
     ]
 
 }
