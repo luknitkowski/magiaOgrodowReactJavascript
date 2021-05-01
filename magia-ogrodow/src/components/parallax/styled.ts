@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
+type PropsType = {
+  image: any
+}
+
 export const ParallaxBlock = styled.div`
-  background-image: url(${(props) => props.image});
+  background-image: url(${(props: PropsType) => props.image});
   min-height: 100vh;
   background-attachment: fixed;
   background-position: center;
