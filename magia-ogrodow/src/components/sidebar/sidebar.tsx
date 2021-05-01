@@ -57,7 +57,7 @@ const SideBar = () => {
   });
 
   const scrollTop = (): void => {
-    window.scrollTo(0, 0);
+    setTimeout(function(){ window.scrollTo(0, 0); }, 100);
   };
 
   const toggleDrawer = (anchor: Anchor, open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
