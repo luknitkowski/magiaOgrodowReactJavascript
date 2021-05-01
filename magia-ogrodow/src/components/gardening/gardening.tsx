@@ -1,23 +1,30 @@
-import React, { useState, useLayoutEffect } from "react";
-import Parallax from '../parallax';
+import { useState, useLayoutEffect } from "react";
+import Fade from 'react-reveal/Fade';
 import Button from '@material-ui/core/Button';
+import PropTypes from "prop-types";
+
 import FullDialog from "../fullDialog";
-
-import imageGardeningParallax from '../../images/garden-back.jpg';
-import imageGardeningTwoParallax from '../../images/garden-house.jpg';
-
+import Parallax from '../parallax';
 import {
   GardeningBlockInfo, SubBlockInfo, Signature, BlockWithExampleGardensForPC,
   SubBlockWithExampleGarden, SubBlockWithExampleGardenForMobile,
   ImageForExampleGarden, BlockWithImage, BlockWithImageForMobile,
   BlockWithTextAndButton, BlockWithTextAndButtonForMobile, BlockRecordForBorder, BlockWithExampleGardensForMobile
-} from './style.js';
-import Fade from 'react-reveal/Fade';
+} from './styled';
+import GardeningConfig from '../../configuration/gardeningConfig';
 
-const TypeOfDevice = ({ widthDevice, handleClickOpen }) => {
+import imageGardeningParallax from '../../images/garden-back.jpg';
+import imageGardeningTwoParallax from '../../images/garden-house.jpg';
 
-  const handleClickOpenFromChild = (gardenToShow) => {
-    handleClickOpen(gardenToShow)
+type TypeOfDeviceType = {
+  widthDevice: number, 
+  handleClickOpen: Function
+}
+
+const TypeOfDevice = ({ widthDevice, handleClickOpen }: TypeOfDeviceType) => {
+
+  const handleClickOpenFromChild = (gardenToShow: string): void => {
+    handleClickOpen(gardenToShow);
   }
   if (widthDevice > 750) {
     return (<BlockWithExampleGardensForPC>
@@ -233,9 +240,21 @@ const TypeOfDevice = ({ widthDevice, handleClickOpen }) => {
   }
 }
 
+TypeOfDevice.propTypes = {
+  widthDevice: PropTypes.number.isRequired,
+  handleClickOpen: PropTypes.func.isRequired
+}
+
+type DialogConfigType = {
+  isOpen: boolean, 
+  gardenToShow: string, 
+  listOfImages: string[]
+}
+
 const Gardening = () => {
-  const [dialogConfig, setDialogConfig] = useState({ isOpen: false, gardenToShow: '', listOfImages: [] });
-  const [widthDevice, setWidthDevice] = useState(0);
+  const [dialogConfig, setDialogConfig] = useState<DialogConfigType>({ isOpen: false, gardenToShow: '', listOfImages: [] });
+  const [widthDevice, setWidthDevice] = useState<number>(0);
+
   useLayoutEffect(() => {
     function updateSize() {
       setWidthDevice(window.innerWidth);
@@ -245,83 +264,11 @@ const Gardening = () => {
     return () => window.removeEventListener('resize', updateSize);
   }, []);
 
-  const pathsList = {
-    'first': [
-      '/images/project-images/first/1-min.jpg',
-      '/images/project-images/first/2-min.jpg',
-      '/images/project-images/first/3-min.jpg',
-      '/images/project-images/first/4-min.jpg',
-      '/images/project-images/first/5-min.jpg',
-      '/images/project-images/first/6-min.jpg',
-      '/images/project-images/first/7-min.jpg',
-      '/images/project-images/first/8-min.jpg',
-      '/images/project-images/first/9-min.jpg'
-    ],
-    'second': [
-      '/images/project-images/second/1-min.jpg',
-      '/images/project-images/second/2-min.jpg',
-      '/images/project-images/second/3-min.jpg',
-      '/images/project-images/second/4-min.jpg',
-      '/images/project-images/second/5-min.jpg',
-      '/images/project-images/second/6-min.jpg',
-      '/images/project-images/second/7-min.jpg',
-      '/images/project-images/second/8-min.jpg',
-      '/images/project-images/second/9-min.jpg',
-      '/images/project-images/second/10-min.jpg',
-      '/images/project-images/second/11-min.jpg',
-      '/images/project-images/second/12-min.jpg'
-    ],
-    'third': [
-      '/images/project-images/third/1-min.jpg',
-      '/images/project-images/third/2-min.jpg',
-      '/images/project-images/third/3-min.jpg',
-      '/images/project-images/third/4-min.jpg',
-      '/images/project-images/third/5-min.jpg',
-      '/images/project-images/third/6-min.jpg',
-      '/images/project-images/third/7-min.jpg',
-      '/images/project-images/third/8-min.jpg',
-      '/images/project-images/third/9-min.jpg'
-    ],
-    'fourth': [
-      '/images/project-images/fourth/1-min.jpg',
-      '/images/project-images/fourth/2-min.jpg',
-      '/images/project-images/fourth/3-min.jpg',
-      '/images/project-images/fourth/4-min.jpg',
-      '/images/project-images/fourth/5-min.jpg',
-      '/images/project-images/fourth/6-min.jpg',
-      '/images/project-images/fourth/7-min.jpg',
-      '/images/project-images/fourth/8-min.jpg',
-      '/images/project-images/fourth/9-min.jpg',
-      '/images/project-images/fourth/10-min.jpg',
-      '/images/project-images/fourth/11-min.jpg'
-    ],
-    'fifth': [
-      '/images/project-images/fifth/1-min.jpg',
-      '/images/project-images/fifth/2-min.jpg',
-      '/images/project-images/fifth/3-min.jpg',
-      '/images/project-images/fifth/4-min.jpg',
-      '/images/project-images/fifth/5-min.jpg',
-      '/images/project-images/fifth/6-min.jpg',
-      '/images/project-images/fifth/7-min.jpg',
-      '/images/project-images/fifth/8-min.jpg'
-    ],
-    'sixth': [
-      '/images/project-images/sixth/1-min.jpg',
-      '/images/project-images/sixth/2-min.jpg',
-      '/images/project-images/sixth/3-min.jpg',
-      '/images/project-images/sixth/4-min.jpg',
-      '/images/project-images/sixth/5-min.jpg',
-      '/images/project-images/sixth/6-min.jpg',
-      '/images/project-images/sixth/7-min.jpg',
-      '/images/project-images/sixth/8-min.jpg'
-    ]
-  }
-
-  const handleClickOpen = (gardenToShow) => {
-    setDialogConfig({ isOpen: true, gardenToShow: gardenToShow, listOfImages: [...pathsList[gardenToShow]] });
+  const handleClickOpen = (gardenToShow: string ): void => { 
+    setDialogConfig({ isOpen: true, gardenToShow: gardenToShow, listOfImages: [...GardeningConfig.pathsList[gardenToShow]] });
   };
 
-  const closeFullDialog = () => {
+  const closeFullDialog = (): void => {
     setDialogConfig({ isOpen: false, gardenToShow: '', listOfImages: [] });
   };
 
@@ -331,10 +278,10 @@ const Gardening = () => {
       <GardeningBlockInfo>
         <SubBlockInfo>
           <Fade left>
-            <p>“Ogród powinien docierać do głębi. Odmienić serce, zasmucić, uszlachetnić. Jego rolą jest skłonić nas do zadumy nad przemijalnością wszystkiego, co nas otacza . Ten szczególny punkt w czasie, kiedy ostatni liść już-już ma opaść, gdy ostatni płatek już-już ma się osypać, ten moment zawiera wszystko, co w życiu piękne i bolesne.”</p>
+            <p>{GardeningConfig.mainInfo}</p>
           </Fade>
           <Fade right>
-            <Signature className="signature">Tan Twan Eng</Signature>
+            <Signature className="signature">{GardeningConfig.signature}</Signature>
           </Fade>
         </SubBlockInfo>
       </GardeningBlockInfo>
