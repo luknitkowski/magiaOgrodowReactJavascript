@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer'
 
-import imageAboutUsParallax from '../../images/dzialka.jpg';
+import imageAboutUsParallax from '../../src/images/dzialka.jpg';
 import Parallax from '../components/parallax';
 
 const propsParallax = {

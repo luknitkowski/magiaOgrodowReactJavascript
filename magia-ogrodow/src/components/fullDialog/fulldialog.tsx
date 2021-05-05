@@ -59,7 +59,7 @@ const FullDialog = ({ dialogConfig, closeFullDialog }: FullDialogTypeProps) => {
         }
        }, 100);
     }
-  }, [dialogConfig.isOpen])
+  }, [dialogConfig.isOpen, dialogConfig.listOfImages])
 
   const closeDialog = () => {
     closeFullDialog();

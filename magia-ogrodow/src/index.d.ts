@@ -9,3 +9,6 @@ declare module '@material-ui/core/BottomNavigation';
 declare module '@material-ui/core/BottomNavigationAction';
 declare module '@material-ui/core/Dialog';
 declare module 'react-test-renderer';
+declare module 'enzyme';
+declare module 'enzyme-to-json';
+declare module 'styled-components';

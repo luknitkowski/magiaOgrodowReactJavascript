@@ -1,4 +1,7 @@
 import renderer from 'react-test-renderer'
+import EnzymeToJson from 'enzyme-to-json';
+import Enzyme,{ mount } from 'enzyme'; 
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
 import FullDialog from '../components/fullDialog';
 
@@ -23,7 +26,10 @@ const testProps = {
 
 
 test('FullDialog renders correctly', () => {
-  const fullDialog = renderer.create(<FullDialog dialogConfig={testProps.dialogConfig} closeFullDialog={testProps.closeFullDialog} />).toJSON();
-  expect(fullDialog).toMatchSnapshot();
+    Enzyme.configure({ adapter: new Adapter() });
+    const fullDialog = mount(<FullDialog dialogConfig={testProps.dialogConfig} closeFullDialog={testProps.closeFullDialog} />);
+    expect(EnzymeToJson(fullDialog)).toMatchSnapshot();
+  {/* const fullDialog = renderer.create(<FullDialog dialogConfig={testProps.dialogConfig} closeFullDialog={testProps.closeFullDialog} />).toJSON();
+  expect(fullDialog).toMatchSnapshot(); */}
 });
 
