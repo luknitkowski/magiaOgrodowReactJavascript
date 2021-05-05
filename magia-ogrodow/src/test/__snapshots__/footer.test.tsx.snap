@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders correctly 1`] = `
+<footer
+  className="sc-bdfBwQ bJfYkN"
+>
+  <img
+    alt="Magia ogrodów Logo"
+    className="sc-gsTCUz czoNmK"
+    src="logo.png"
+    width="90"
+  />
+  <div
+    className="sc-dlfnbm irKmDs"
+  >
+    <div
+      className="react-reveal"
+      style={
+        Object {
+          "opacity": undefined,
+        }
+      }
+    >
+      <h3>
+        KONTAKT:
+      </h3>
+      <p>
+        E-mail: 
+        magiaogrodow@wp.pl
+        <br />
+        Tel.: 
+        +48 606 652 317
+        <br />
+      </p>
+      <p>
+        Adres firmy:
+        <br />
+         
+        Dębogórska 8
+        <br />
+        84-230 Dębogórze Wybudowanie
+      </p>
+    </div>
+    <div
+      className="react-reveal"
+      style={
+        Object {
+          "opacity": undefined,
+        }
+      }
+    >
+      <div>
+        <h3>
+          Punkt sprzedaży czynny:
+        </h3>
+        <p>
+          poniedziałek - piątek: 
+          9 - 18
+          <br />
+          sobota: 
+          9 - 15
+          <br />
+          W okresie od 1 marca do 30 listopada
+        </p>
+      </div>
+      <div>
+        <h3>
+          Nasze Media:
+        </h3>
+        <a
+          href="https://www.facebook.com/Magia-Ogrod%C3%B3w-141887419310359/"
+          rel="noreferrer"
+          style={
+            Object {
+              "marginLeft": "20px",
+              "marginRight": "20px",
+            }
+          }
+          target="_blank"
+        >
+          <img
+            alt="dd"
+            src="dd.png"
+            width="40"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="react-reveal"
+    style={
+      Object {
+        "opacity": undefined,
+      }
+    }
+  >
+    <div
+      className="sc-hKgILt bJqKSu"
+    >
+      ©
+      2021
+       Magia Ogrodów CREATED BY 
+      <a
+        href="https://www.linkedin.com/in/lukasz-nitkowski-21025b132/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Łukasz Nitkowski
+      </a>
+    </div>
+  </div>
+</footer>
+`;

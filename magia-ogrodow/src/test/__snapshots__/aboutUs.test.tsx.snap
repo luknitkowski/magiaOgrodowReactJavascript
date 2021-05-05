@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutUs renders correctly 1`] = `
+<div>
+  <div
+    className="sc-bdfBwQ cnTKxZ"
+  >
+    <h1
+      className="sc-gsTCUz iyjhuT"
+    >
+      
+    </h1>
+  </div>
+  <div
+    className="sc-dlfnbm jPpvPn"
+  >
+    <div
+      className="sc-hKgILt bKSgat"
+    >
+      <h2
+        className="react-reveal"
+        style={
+          Object {
+            "opacity": undefined,
+          }
+        }
+      >
+        Beata Kulling-Nitkowska
+      </h2>
+      <h3
+        className="react-reveal"
+        style={
+          Object {
+            "opacity": undefined,
+          }
+        }
+      >
+        inż. architekt krajobrazu
+      </h3>
+      <p
+        className="react-reveal"
+        style={
+          Object {
+            "opacity": undefined,
+          }
+        }
+      >
+        Praca w szkółce oraz zakładanie ogrodów nie jest dla mnie tylko pracą.... jest także pasją. Każdego klienta traktuję indywidualnie. Moją szkółkę i usługi cechuje wysoka jakość, a nie ilość.
+      </p>
+      <div
+        className="react-reveal"
+        style={
+          Object {
+            "opacity": undefined,
+          }
+        }
+      >
+        <p
+          className="sc-eCssSg euVqhL signature"
+        >
+          Beata Kulling-Nitkowska
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-iBPRYJ ergyIr"
+  >
+    <div
+      className="react-reveal"
+      style={
+        Object {
+          "opacity": undefined,
+        }
+      }
+    >
+      <div
+        className="sc-fubCfw hpUaYh"
+      >
+        <img
+          alt="face image"
+          className="sc-pFZIQ iWVAbt"
+          height="500"
+          src="owner-picture.jpg"
+          width="300"
+        />
+      </div>
+    </div>
+    <div
+      className="react-reveal"
+      style={
+        Object {
+          "opacity": undefined,
+        }
+      }
+    >
+      <div
+        className="sc-jSgupP ktdDnZ"
+      >
+        <p>
+          Szkółka roślin ozdobnych Magia Ogrodów od 2010 roku zaprasza w świat roślin. Każdy miłośnik roślinności znajdzie u nas coś dla siebie, a osoby dopiero rozpoczynające przygodę z ogrodem dostaną od Nas uwagę i doświadczenie.
+        </p>
+        <p>
+          Magia Ogrodów to przede wszystkim szkółka roślin w której można nabyć drzewa, krzewy, byliny , jak i kwiaty rabatowe. Prowadzimy sprzedaż roślin w doniczkach , które można sadzić przez cały okres wegetacyjny.
+        </p>
+        <p>
+          Specjalizujemy się także w projektowaniu, zakładaniu oraz pielęgnacji ogrodów.
+        </p>
+        <p>
+          Dołożymy wszelkich starań , aby Państwa ogrody były piękne i niepowtarzalne, dopasowane do indywidualnych potrzeb.
+        </p>
+        <h5
+          className="sc-gKsewC hLFHxb"
+        >
+          ZAPRASZAMY!
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact renders correctly 1`] = `
+<div>
+  <div
+    className="sc-bdfBwQ htgFLB"
+  >
+    <h1
+      className="sc-gsTCUz iyjhuT"
+    >
+      
+    </h1>
+  </div>
+  <div
+    className="sc-dlfnbm cVyYoD"
+  >
+    <div
+      className="sc-hKgILt bueemw"
+    >
+      <h2
+        className="react-reveal"
+        style={
+          Object {
+            "opacity": undefined,
+          }
+        }
+      >
+        DOJAZD I KONTAKT
+      </h2>
+      <p
+        className="react-reveal"
+        style={
+          Object {
+            "opacity": undefined,
+          }
+        }
+      >
+        Szkółka zlokalizowana jest na granicy Rumi oraz Dębogórze Wybudowanie. Istnieje możliwość dojazdu autobusem z dworca PKP Rumia nr 86. Szczegółowe informacje jak numer telefonu, adres czy email można znaleźć na dole strony w stopce.
+      </p>
+      <div
+        className="react-reveal"
+        style={
+          Object {
+            "opacity": undefined,
+          }
+        }
+      >
+        <span
+          aria-disabled={false}
+          aria-label="upload picture"
+          className="MuiButtonBase-root MuiIconButton-root sc-eCssSg bytRzB MuiIconButton-colorPrimary"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root sc-jSgupP uZKtv"
+              focusable="false"
+              style={
+                Object {
+                  "height": "100px",
+                  "width": "100px",
+                }
+              }
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-gKsewC grIHfk"
+  >
+    <div
+      className="react-reveal"
+      style={
+        Object {
+          "opacity": undefined,
+        }
+      }
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;

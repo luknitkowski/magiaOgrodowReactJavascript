@@ -8,3 +8,4 @@ declare module 'clsx';
 declare module '@material-ui/core/BottomNavigation';
 declare module '@material-ui/core/BottomNavigationAction';
 declare module '@material-ui/core/Dialog';
+declare module 'react-test-renderer';
