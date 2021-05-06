@@ -12,3 +12,4 @@ declare module 'react-test-renderer';
 declare module 'enzyme';
 declare module 'enzyme-to-json';
 declare module 'styled-components';
+

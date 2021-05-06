@@ -23,7 +23,7 @@ export const Signature = styled.p`
   float: right;
   right: 20%;
   position: relative;
-
+  
   @media only screen and (max-width: 500px) {
     right: 20px;
   }
