@@ -8,11 +8,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import PropTypes from "prop-types";
+import { ThemeProvider } from "styled-components";
 
+import  {useDarkMode} from "./customHooks/useDarkMode";
+import Theme from "./context/theme";
+import Toggle from "./components/Toggler"
 import SideBar from "./components/sidebar";
 import HorizontalMenu from "./components/horizontalMenu";
 import BodyRouter from "./components/bodyrouter";
 import Footer from "./components/footer";
+import { GlobalStyles } from './context/global';
 
 import logo from './images/logo.png'
 
@@ -29,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#5CDB95'
   },
   logo: {
-    marginLeft: 'auto'
+    
   }
 }));
 
@@ -103,26 +108,38 @@ const App = (props: any) => {
   const classes = useStyles();
   const matches = useMediaQuery('(min-width:750px)');
 
+  const [theme, themeToggler, mountedComponent] = useDarkMode();
+
+  const themeMode: object = theme === 'light' ? Theme.lightMode : Theme.darkMode;
+
+  if (!mountedComponent) {
+    return <div />
+  };
+
   return (
-    <div className={classes.appContainer}>
-      <HideOnScroll {...props}>
-        <AppBar position="fixed" className={classes.appBarDiv}>
-          <Toolbar>
-            {matches ? 
-              <HorizontalMenu /> : <SideBar /> }
-              {matches ? <div></div>: <img alt="logo" height="50" src={logo} className={classes.logo}/>}
-          </Toolbar>
-        </AppBar>
-      </HideOnScroll>
-      <Toolbar id="back-to-top-anchor" />
-      <BodyRouter />
-      <Footer />
-      <ScrollTop {...props}>
-        <Fab color="secondary" size="small" aria-label="scroll back to top">
-          <KeyboardArrowUpIcon />
-        </Fab>
-      </ScrollTop>
-    </div>
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyles />
+      <div className={classes.appContainer}>
+        <HideOnScroll {...props}>
+          <AppBar position="fixed" className={classes.appBarDiv}>
+            <Toolbar>
+              {matches ? 
+                <HorizontalMenu /> : <SideBar /> }
+                <Toggle theme={theme} toggleTheme={themeToggler} />
+                {matches ? <div></div>: <img alt="logo" height="50" src={logo} className={classes.logo}/>}
+            </Toolbar>
+          </AppBar>
+        </HideOnScroll>
+        <Toolbar id="back-to-top-anchor" />
+        <BodyRouter />
+        <Footer />
+        <ScrollTop {...props}>
+          <Fab color="secondary" size="small" aria-label="scroll back to top">
+            <KeyboardArrowUpIcon />
+          </Fab>
+        </ScrollTop>
+      </div>
+    </ThemeProvider>
   );
 };
 
