@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import IconButton from "@material-ui/core/IconButton";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import StyledTheme from '../../context/styledTheme';
 
 export const PlantNurseryContainer = styled.div`
 `;
@@ -9,7 +10,7 @@ export const PlantNurseryBlockInfo = styled.div`
   text-align: center;
   border-bottom: 1px solid rgb(198, 198, 198);
   padding: 40px;
-  background-color: #adebc5;
+  background-color: ${({ theme }: StyledTheme) => theme.lightColorGradient};
 `;
 
 export const PlantNurserySubBlockInfo = styled.div`
@@ -33,7 +34,7 @@ export const SubTypeOfFlora = styled.div`
 `;
 
 export const PlantNurseryInfoToScrollDown = styled.div`
-  background-color: #adebc5;
+  background-color: ${({ theme }: StyledTheme) => theme.lightColorGradient};
   align-items: center;
   padding: 40px;
   border-top: 1px solid rgb(198, 198, 198);

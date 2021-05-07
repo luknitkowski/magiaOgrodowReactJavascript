@@ -33,9 +33,6 @@ const useStyles = makeStyles((theme) => ({
   appBarDiv: {
     backgroundColor: '#5CDB95'
   },
-  logo: {
-    
-  }
 }));
 
 type PropsScrollTopType = {
@@ -126,7 +123,7 @@ const App = (props: any) => {
               {matches ? 
                 <HorizontalMenu /> : <SideBar /> }
                 <Toggle theme={theme} toggleTheme={themeToggler} />
-                {matches ? <div></div>: <img alt="logo" height="50" src={logo} className={classes.logo}/>}
+                {matches ? <div></div>: <img alt="logo" height="50" src={logo}/>}
             </Toolbar>
           </AppBar>
         </HideOnScroll>

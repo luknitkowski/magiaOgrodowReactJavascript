@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import StyledTheme from '../../context/styledTheme';
 
 export const ProjectBlockInfo = styled.div`
   text-align: center;
   border-bottom: 1px solid rgb(198, 198, 198);
   padding: 40px;
-  background-color: #adebc5;
+  background-color: ${({ theme }: StyledTheme) => theme.lightColorGradient};
 
   div {
     max-width: 1000px;

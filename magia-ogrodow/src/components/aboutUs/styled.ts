@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import StyledTheme from '../../context/styledTheme'
 
 export const AboutUsBlockInfo = styled.div`
   text-align: center;
@@ -6,7 +7,7 @@ export const AboutUsBlockInfo = styled.div`
   padding:40px;
   padding-top: 70px;
   padding-bottom: 70px;
-  background-color: #adebc5;
+  background-color: ${({ theme }: StyledTheme) => theme.lightColorGradient}
 `;
 
 export const SubBlockInfo = styled.div`

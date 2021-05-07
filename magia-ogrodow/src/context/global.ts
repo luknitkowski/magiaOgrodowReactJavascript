@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import StyledTheme from './styledTheme'
 
 export const GlobalStyles = createGlobalStyle`
   *,
@@ -8,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }: any) => theme.body};
-    color: ${({ theme }: any) => theme.text};
+    background: ${({ theme }: StyledTheme) => theme.body};
+    color: ${({ theme }: StyledTheme) => theme.text};
     transition: all 0.25s linear;
   }`

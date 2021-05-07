@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import StyledTheme from '../../context/styledTheme';
 
 export const GardenCareContainer = styled.div`
 `;
@@ -6,7 +7,7 @@ export const GardenCareBlockInfo = styled.div`
   text-align: center;
   border-bottom: 1px solid rgb(198, 198, 198);
   padding: 40px;
-  background-color: #adebc5;
+  background-color: ${({ theme }: StyledTheme) => theme.lightColorGradient};
 `;
 
 export const GardenCareSubBlockInfo = styled.div`

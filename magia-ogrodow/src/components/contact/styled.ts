@@ -1,12 +1,13 @@
 import styled, { keyframes } from "styled-components";
 import IconButton from "@material-ui/core/IconButton";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import StyledTheme from '../../context/styledTheme';
 
 export const ContactBlockInfo = styled.div`
   text-align: center;
   border-bottom: 1px solid rgb(198, 198, 198);
   padding: 40px;
-  background-color: #adebc5;
+  background-color: ${({ theme }: StyledTheme) => theme.lightColorGradient};
 `;
 
 export const ContactSubBlockInfo = styled.div`

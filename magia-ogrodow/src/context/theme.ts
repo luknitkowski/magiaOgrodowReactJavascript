@@ -1,19 +1,28 @@
 import ThemeType from './themeType'
 
-const Theme: ThemeType = {
+type ThemeWithModesType = {
+  lightMode: ThemeType,
+  darkMode: ThemeType
+}
+
+const Theme: ThemeWithModesType = {
   lightMode: {
-    color: "red",
     body: 'white',
     text: '#363537',
-    toggleBorder: '#FFF',
+    lightColorGradient: '#adebc5',
+    darkColorGradient: '#5CDB95',
     gradient: 'linear-gradient(#39598A, #79D7ED)',
+    toggleBorder: '#FFF',
+    primary: "red"
   },
   darkMode: {
-    color: "blue",
     body: '#363537',
     text: '#FAFAFA',
-    toggleBorder: '#6B8096',
+    lightColorGradient: 'black',
+    darkColorGradient: '#363537',
     gradient: 'linear-gradient(#091236, #1E215D)',
+    toggleBorder: '#6B8096',
+    primary: "red"
   }
 };
 

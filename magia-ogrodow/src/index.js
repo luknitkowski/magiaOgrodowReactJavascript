@@ -9,7 +9,8 @@ import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const theme = createMuiTheme ({
+const themeMui = createMuiTheme ({
+  
   palette: {
     root: {
       main: '#5CDB95'
@@ -27,7 +28,7 @@ const theme = createMuiTheme ({
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
-      <MuiThemeProvider theme = {theme}>
+      <MuiThemeProvider theme = {themeMui}>
         <App />
       </MuiThemeProvider> 
     </HashRouter>

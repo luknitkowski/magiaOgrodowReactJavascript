@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import StyledTheme from '../../context/styledTheme';
 
 export const GardeningBlockInfo = styled.div`
   text-align: center;
   border-bottom: 1px solid rgb(198, 198, 198);
   padding-top: 70px;
   padding-bottom: 70px;
-  background-color: #adebc5;
+  background-color: ${({ theme }: StyledTheme) => theme.lightColorGradient};
 `;
 
 export const SubBlockInfo = styled.div`
