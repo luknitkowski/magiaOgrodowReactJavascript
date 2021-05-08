@@ -1,3 +1,7 @@
+import {Fragment} from "react";
+import Button from "@material-ui/core/Button";
+import Snackbar from "@material-ui/core/Snackbar";
+import { useEffect, useState } from "react";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Fab from "@material-ui/core/Fab";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
@@ -9,6 +13,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
+import Cookies from 'universal-cookie';
 
 import  {useDarkMode} from "./customHooks/useDarkMode";
 import Theme from "./context/theme";
@@ -33,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
   appBarDiv: {
     backgroundColor: '#5CDB95'
   },
+  close: {
+    padding: theme.spacing(0.5)
+  }
 }));
 
 type PropsScrollTopType = {
@@ -104,14 +112,33 @@ HideOnScroll.propTypes = {
 const App = (props: any) => {
   const classes = useStyles();
   const matches = useMediaQuery('(min-width:750px)');
-
   const [theme, themeToggler, mountedComponent] = useDarkMode();
+  const [isCookieRodo, setIsCookieRodo] = useState<boolean>(false);
+  const [isShowInfoRodo, setShowInfoRodo] = useState<boolean>(false);
+
+  useEffect(() => {
+    if(!isCookieRodo){
+      const magiaOgrodowCookieRodo = 'magiaOgrodowCookieRodo';
+      const cookies = new Cookies();
+      const cookieRodo = cookies.get(magiaOgrodowCookieRodo);
+      if(cookieRodo){
+        // no action for now
+      } else {
+        setShowInfoRodo(true)
+      }
+      setIsCookieRodo(true);
+    }
+  },[isCookieRodo] )
 
   const themeMode: object = theme === 'light' ? Theme.lightMode : Theme.darkMode;
 
   if (!mountedComponent) {
     return <div />
   };
+
+  const handleClose = () => {
+    setShowInfoRodo(false);
+  }
 
   return (
     <ThemeProvider theme={themeMode}>
@@ -136,6 +163,25 @@ const App = (props: any) => {
           </Fab>
         </ScrollTop>
       </div>
+      <Snackbar
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center"
+        }}
+        open={isShowInfoRodo}
+        onClose={handleClose}
+        message={'Ta strona korzysta z ciasteczek aby świadczyć usługi na najwyższym poziomie. Dalsze korzystanie ze strony oznacza, że zgadzasz się na ich użycie.'}
+        action={
+          <Fragment>
+            <Button color="primary" size="small" onClick={handleClose}>
+              Zgoda
+            </Button>
+            <Button color="secondary" size="small" onClick={handleClose}>
+              Polityka prywatności
+            </Button>
+          </Fragment>
+        }
+      />
     </ThemeProvider>
   );
 };
