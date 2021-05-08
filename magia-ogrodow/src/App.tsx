@@ -15,6 +15,8 @@ import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
 import Cookies from 'universal-cookie';
 
+
+import ConstValues from './configuration/constValues'
 import  {useDarkMode} from "./customHooks/useDarkMode";
 import Theme from "./context/theme";
 import Toggle from "./components/Toggler"
@@ -23,6 +25,7 @@ import HorizontalMenu from "./components/horizontalMenu";
 import BodyRouter from "./components/bodyrouter";
 import Footer from "./components/footer";
 import { GlobalStyles } from './context/global';
+import SimpleDialog from './components/simpleDialog';
 
 import logo from './images/logo.png'
 
@@ -115,12 +118,12 @@ const App = (props: any) => {
   const [theme, themeToggler, mountedComponent] = useDarkMode();
   const [isCookieRodo, setIsCookieRodo] = useState<boolean>(false);
   const [isShowInfoRodo, setShowInfoRodo] = useState<boolean>(false);
-
+  const [IsDialogWithPolitykaPrywatnosci, setIsDialogWithPolitykaPrywatnosci] = useState<boolean>(false);
+  const cookies = new Cookies();
+  
   useEffect(() => {
     if(!isCookieRodo){
-      const magiaOgrodowCookieRodo = 'magiaOgrodowCookieRodo';
-      const cookies = new Cookies();
-      const cookieRodo = cookies.get(magiaOgrodowCookieRodo);
+      const cookieRodo = cookies.get(ConstValues.magiaOgrodowCookieRodo);
       if(cookieRodo){
         // no action for now
       } else {
@@ -136,8 +139,37 @@ const App = (props: any) => {
     return <div />
   };
 
-  const handleClose = () => {
+  const openPolitykaPrywatnosci = () => {
+    setShowInfoRodo(false)
+    setIsDialogWithPolitykaPrywatnosci(true);
+
+  };
+
+  const closePolitykaPrywatnosci = () => {
+    setIsDialogWithPolitykaPrywatnosci(false);
+    setShowInfoRodo(true);
+  };
+
+  const setCookieWithApprove = () => {
+    let date = new Date();
+    date.setTime(date.getTime() +1000*60*60*24*365);
+    cookies.set(ConstValues.magiaOgrodowCookieRodo, ConstValues.magiaOgrodowCookieRodoValue, { path: '/', expires: new Date(date) });
+  }
+
+  const handleCloseWithAccept = (
+    event: React.SyntheticEvent | MouseEvent,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setCookieWithApprove()
     setShowInfoRodo(false);
+    handleCloseRodoDialog()
+  };
+
+  const handleCloseRodoDialog = () => {
+    setIsDialogWithPolitykaPrywatnosci(false);
   }
 
   return (
@@ -169,18 +201,22 @@ const App = (props: any) => {
           horizontal: "center"
         }}
         open={isShowInfoRodo}
-        onClose={handleClose}
         message={'Ta strona korzysta z ciasteczek aby świadczyć usługi na najwyższym poziomie. Dalsze korzystanie ze strony oznacza, że zgadzasz się na ich użycie.'}
         action={
           <Fragment>
-            <Button color="primary" size="small" onClick={handleClose}>
+            <Button variant="contained" color="primary" size="small" onClick={handleCloseWithAccept} style={{marginRight:'10px'}}>
               Zgoda
             </Button>
-            <Button color="secondary" size="small" onClick={handleClose}>
+            <Button variant="contained" color="secondary" size="small" onClick={openPolitykaPrywatnosci}>
               Polityka prywatności
             </Button>
           </Fragment>
         }
+      />
+      <SimpleDialog
+        open={IsDialogWithPolitykaPrywatnosci}
+        onClose={closePolitykaPrywatnosci}
+        onAcceptedRodo={handleCloseWithAccept}
       />
     </ThemeProvider>
   );
