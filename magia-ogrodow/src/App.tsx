@@ -1,4 +1,3 @@
-import {Fragment} from "react";
 import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import { useEffect, useState } from "react";
@@ -14,20 +13,23 @@ import Toolbar from "@material-ui/core/Toolbar";
 import PropTypes from "prop-types";
 import { ThemeProvider } from "styled-components";
 import Cookies from 'universal-cookie';
-
+import { Suspense, lazy } from 'react';
 
 import ConstValues from './configuration/constValues'
-import  {useDarkMode} from "./customHooks/useDarkMode";
+import { useDarkMode } from "./customHooks/useDarkMode";
 import Theme from "./context/theme";
 import Toggle from "./components/Toggler"
 import SideBar from "./components/sidebar";
 import HorizontalMenu from "./components/horizontalMenu";
 import BodyRouter from "./components/bodyrouter";
-import Footer from "./components/footer";
 import { GlobalStyles } from './context/global';
 import SimpleDialog from './components/simpleDialog';
 
 import logo from './images/logo.png'
+import Loader from './components/loader';
+
+const Footer = lazy(() => import('./components/footer'));
+
 
 const useStyles = makeStyles((theme) => ({
   appContainer: {
@@ -48,9 +50,8 @@ const useStyles = makeStyles((theme) => ({
 
 type PropsScrollTopType = {
   children: Element,
-  window : Function
+  window: Function
 }
-
 const ScrollTop = (props: PropsScrollTopType) => {
   const { children, window } = props;
   const classes = useStyles();
@@ -120,18 +121,18 @@ const App = (props: any) => {
   const [isShowInfoRodo, setShowInfoRodo] = useState<boolean>(false);
   const [IsDialogWithPolitykaPrywatnosci, setIsDialogWithPolitykaPrywatnosci] = useState<boolean>(false);
   const cookies = new Cookies();
-  
+
   useEffect(() => {
-    if(!isCookieRodo){
+    if (!isCookieRodo) {
       const cookieRodo = cookies.get(ConstValues.magiaOgrodowCookieRodo);
-      if(cookieRodo){
+      if (cookieRodo) {
         // no action for now
       } else {
         setShowInfoRodo(true)
       }
       setIsCookieRodo(true);
     }
-  },[isCookieRodo] )
+  }, [isCookieRodo])
 
   const themeMode: object = theme === 'light' ? Theme.lightMode : Theme.darkMode;
 
@@ -152,7 +153,7 @@ const App = (props: any) => {
 
   const setCookieWithApprove = () => {
     let date = new Date();
-    date.setTime(date.getTime() +1000*60*60*24*365);
+    date.setTime(date.getTime() + 1000 * 60 * 60 * 24 * 365);
     cookies.set(ConstValues.magiaOgrodowCookieRodo, ConstValues.magiaOgrodowCookieRodoValue, { path: '/', expires: new Date(date) });
   }
 
@@ -179,16 +180,18 @@ const App = (props: any) => {
         <HideOnScroll {...props}>
           <AppBar position="fixed" className={classes.appBarDiv}>
             <Toolbar>
-              {matches ? 
-                <HorizontalMenu /> : <SideBar /> }
-                <Toggle theme={theme} toggleTheme={themeToggler} />
-                {matches ? <div></div>: <img alt="logo" height="50" src={logo}/>}
+              {matches ?
+                <HorizontalMenu /> : <SideBar />}
+              <Toggle theme={theme} toggleTheme={themeToggler} />
+              {matches ? <div></div> : <img alt="logo" height="50" src={logo} />}
             </Toolbar>
           </AppBar>
         </HideOnScroll>
         <Toolbar id="back-to-top-anchor" />
-        <BodyRouter />
-        <Footer />
+        <Suspense fallback={<Loader />}>
+          <BodyRouter />
+          <Footer />
+        </Suspense>
         <ScrollTop {...props}>
           <Fab color="secondary" size="small" aria-label="scroll back to top">
             <KeyboardArrowUpIcon />
@@ -203,14 +206,14 @@ const App = (props: any) => {
         open={isShowInfoRodo}
         message={'Ta strona korzysta z ciasteczek aby świadczyć usługi na najwyższym poziomie. Dalsze korzystanie ze strony oznacza, że zgadzasz się na ich użycie.'}
         action={
-          <Fragment>
-            <Button variant="contained" color="primary" size="small" onClick={handleCloseWithAccept} style={{marginRight:'10px'}}>
+          <>
+            <Button variant="contained" color="primary" size="small" onClick={handleCloseWithAccept} style={{ marginRight: '10px' }}>
               Zgoda
             </Button>
             <Button variant="contained" color="secondary" size="small" onClick={openPolitykaPrywatnosci}>
               Polityka prywatności
             </Button>
-          </Fragment>
+          </>
         }
       />
       <SimpleDialog
