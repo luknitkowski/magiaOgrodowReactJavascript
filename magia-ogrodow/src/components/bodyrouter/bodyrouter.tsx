@@ -7,6 +7,7 @@ const Projects = lazy(() => import('../projects'));
 const Gardening = lazy(() => import('../gardening'));
 const GardenCare = lazy(() => import('../gardenCare'));
 const Contact = lazy(() => import('../contact'));
+const NoMatch = lazy(() => import('../noMatch'));
 
 const BodyRouter = () => {
   return (
@@ -18,7 +19,7 @@ const BodyRouter = () => {
           <Route path="/gardening" component={Gardening} />
           <Route path="/gardenCare" component={GardenCare} />
           <Route path="/contact" component={Contact} />
-          <Route path="/" component={AboutUs} exact/>
+          <Route path="*" component={NoMatch} />
         </Switch>
     </div>
   );

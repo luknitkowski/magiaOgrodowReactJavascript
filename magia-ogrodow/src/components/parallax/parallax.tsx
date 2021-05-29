@@ -1,15 +1,32 @@
 import {ParallaxBlock,Header} from './styled';
 import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
 
 type PropsParallax = {
   text?: string,
-  image: any
+  image: any,
+  is404?: boolean
 }
 
-const Parallax = ({ text = "", image }: PropsParallax) => {
+const Parallax = ({ text = "", image, is404 = false }: PropsParallax) => {
+
+  let contentOfParallax = null;
+
+  if(is404){
+    contentOfParallax = <div>
+      <Header>404</Header>
+      <p>Nie znaleziono strony</p>
+      <Link to="/">
+      Go Home
+    </Link>
+    </div>
+  } else {
+    <Header>{text}</Header>
+  }
+
   return (
     <ParallaxBlock image={image}>
-      <Header>{text}</Header>
+      {contentOfParallax}
     </ParallaxBlock>
   );
 };
